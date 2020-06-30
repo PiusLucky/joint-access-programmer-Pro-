@@ -232,6 +232,7 @@ def search(request):
     if 'query' in request.GET and request.GET['query']:
         myquery = request.GET['query']
         post = Post.objects.filter(
+        # draft=False,
         Q(title__icontains=myquery)|
         Q(content__icontains=myquery)|
         Q(category__icontains=myquery)|

@@ -69,7 +69,7 @@
         {% for post in post_query %}
         <div class="toggle_ctg__sub__content">
             <div class="toggle_ctg__others">            
-                <p><span class="star-icon">🌟</span>&nbsp;{{post.title}}</p>         
+                <p><span class="star-icon">🌟</span>&nbsp;{{post.title|upper}}</p>         
                 <div class="toggle_ctg__others__middle">
                     <p>Read Time -
                      {% if post.read_time == 1 %}
