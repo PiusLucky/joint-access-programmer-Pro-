@@ -232,7 +232,6 @@ def search(request):
     if 'query' in request.GET and request.GET['query']:
         myquery = request.GET['query']
         post = Post.objects.filter(
-        draft=False,
         Q(title__icontains=myquery)|
         Q(content__icontains=myquery)|
         Q(category__icontains=myquery)|
@@ -242,7 +241,7 @@ def search(request):
         Q(url_tracking__icontains=myquery)|
         Q(keywords__icontains=myquery)|
         Q(meta_description__icontains=myquery)
-        ).all()
+        ).filter(draft=False).all()
         number_of_posts = post.count()
         page = request.GET.get('page', 1)
         paginator = Paginator(post, 5)
