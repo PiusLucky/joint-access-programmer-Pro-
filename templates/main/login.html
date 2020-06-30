@@ -1,0 +1,76 @@
+{% extends "index.html" %}
+{% load static %}
+{% block section_1 %}
+<div class="detail_section_desk auth_section">
+    <div class="center_text cat_desktop">
+        <p class="center_text__top center_text__top__cat_text">
+         Sign In
+        </p>
+        <p class="center_text__middle center_text__middle__desk m_t">
+            One-step away from enjoying more contents...
+        </p>
+        <div class="center_text__description desc">
+            Provide your username and passkey entered during registration and that's it. Let's go!
+        </div>
+        <div class="search_form search_form_desk">
+            <form  method="GET" action="/search/">
+                <div>
+                    <input type="text" name="query" aria-label="..." required="" autofocus="" placeholder="Search for any article..." class="form-control"> 
+                </div> 
+                <button class="search_btn_icon" type="submit" aria-label="Search"><i class="fa fa-search"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock section_1 %}
+
+{% block section1_b %}
+<div class="signup_form">
+    <div class="form_header"><i class="fas fa-lock-open"></i><span class="create_account">Login (Authenticate)</span></div>
+    <div class="success_alert"><i class="fas fa-check-circle"></i> Yey! Success. Redirecting now...</div>
+    <div class="fail"><i class="fas fa-times-circle"></i> Oh no! Invalid credentials..</div>
+    <div class="form_ads">
+        <form class="main_form" method="POST" enctype="multipart/form-data">
+             {% csrf_token %}
+            <tr>
+                <th>
+                    <label for="id_username" class="label_class">Username or Email:</label>
+                </th>
+                <td><input type="text" name="username" class="form-control-2"  id="id_username"></td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="id_password" class="label_class">Password:</label>
+                </th>
+                <td><input type="password" name="password" class="form-control-2"  required id="id_password"></td>
+            </tr>
+            <div class="btn_pass">
+            <button type="submit" class="login_act">
+                <span class="log_flex"><i class="fas fa-sign-in-alt"></i> Login <img class="ajax_loader" src="{% static 'img/loader.gif' %}">
+                 </span>
+            </button> <div class="forgot_pass"><a href="{% url 'authorize:reset_password' %}"> forgot password?</a></div>
+            </div>
+        </form>
+        <div class="ads">
+            <p class="advrts_header">Check Out!</p>
+            <p class="ads_text">
+            </p>
+        </div>
+    </div>
+
+</div>
+
+{% endblock section1_b %}
+
+{% block section2_a %}
+{% endblock section2_a %}
+
+{% block section2_b %}
+{% endblock section2_b %}
+
+{% block script %}
+
+{% include 'attachments/login.html' %}
+
+{% endblock %}

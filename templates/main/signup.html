@@ -1,0 +1,159 @@
+{% extends "index.html" %}
+{% load static %}
+{% block section_1 %}
+<div class="detail_section_desk auth_section">
+  <div class="center_text cat_desktop">
+    <p class="center_text__top center_text__top__cat_text">
+      SignUp
+    </p>
+    <p class="center_text__middle center_text__middle__desk m_t">
+      One-step away from enjoying more contents...
+    </p>
+    <div class="center_text__description desc">
+      Provide all correct credentials and that's it. Let's go!
+    </div>
+    <div class="search_form search_form_desk">
+      <form  method="GET" action="/search/">
+        <div>
+          <input type="text" name="query" aria-label="..." required="" autofocus="" placeholder="Search for any article..." class="form-control"> 
+        </div> 
+        <button class="search_btn_icon" type="submit" aria-label="Search"><i class="fa fa-search"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock section_1 %}
+
+{% block section1_b %}
+<div class="signup_form">
+  <div class="form_header"><i class="fas fa-lock"></i><span class="create_account">Create Your Account (Authenticate)</span></div>
+  <div class="form_ads">
+    <form class="main_form" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {% if network_error %}
+      <div class="fail_push network_error"><span class="angry_emoji"></span>
+      {{network_error}}
+      </div>
+      {% endif %}
+      <div class="form_category">Personal Information</div>
+          
+            {% if form.first_name.errors %}
+            <div class="fail_push"><span class="angry_emoji"><i class="fas fa-times-circle"></i></span>
+            {{form.first_name.errors.as_text|cut:"*"}}
+            </div>
+            {% endif %}
+          
+            <tr>
+                <th><label class="label_class" for="id_first_name">First name:</label></th>
+                <td><input value="{% if first_name %}{{first_name}}{% endif %}" class="form-control-2" type="text" name="first_name" maxlength="30" id="id_first_name" /></td>
+            </tr>
+           
+            {% if form.last_name.errors %}
+            <div class="fail_push "><span class="angry_emoji"><i class="fas fa-times-circle"></i></span> 
+              {{form.last_name.errors.as_text|cut:"*"}}
+            </div>
+            {% endif %}
+            
+            <tr>
+                <th><label class="label_class" for="id_last_name">Last name:</label></th>
+                <td><input value="{% if last_name %}{{last_name}}{% endif %}" class="form-control-2" type="text" name="last_name" maxlength="150" id="id_last_name" /></td>
+            </tr>
+            <div class="form_category">Online Accessibility</div>
+            
+              {% if form.username.errors %}
+              <div class="fail_push username_error"><span class="angry_emoji"><i class="fas fa-times-circle"></i></span>
+              {{form.username.errors.as_text|cut:"*"}}
+              </div>
+              {% endif %}
+         
+            
+            <tr>
+                <th><label class="label_class" for="id_username">Username:</label></th>
+                <td>
+                    <input value="{% if username %}{{username}}{% endif %}" type="text"  class="form-control-2" name="username" maxlength="150" required id="id_username" />
+                </td>
+            </tr>
+            
+             {% if form.password.errors %}
+             <div class="fail_push"><span class="angry_emoji"><i class="fas fa-times-circle"></i></span> 
+               {{form.password.errors.as_text|cut:"*"}}
+               </div>
+             {% else %}
+             <div class="fail_push hide_class"><span class="angry_emoji"><i class="fas fa-times-circle"></i></span> 
+               Password does not match!
+               </div>
+             {% endif %} 
+            <div class="password_block">      
+              <tr>
+                  <th><label class="label_class" for="id_password">Password:</label></th>
+                  <td><input value="{% if password %}{{password}}{% endif %}" class="form-control-2 form-pass" type="password" name="password" maxlength="128" required id="id_password" /></td>
+                  <label for="eye_icon_1"><div class="eye_icon pass1"><i class="fas fa-eye"></i></div></label> 
+                  <input type="checkbox" name="eye_icon_password" id="eye_icon_1">
+              </tr>
+            </div> 
+             
+             {% if form.verify_password.errors %}
+             <div class="fail_push"><span class="angry_emoji"><i class="fas fa-times-circle"></i></span>
+               {{form.verify_password.errors.as_text|cut:"*"}}
+              </div>
+             {% endif %}
+            
+           <div class="password_block"> 
+            <tr>
+                <th><label class="label_class" for="id_verify_password">Re-enter Password:</label></th>
+                <td><input value="{% if verify_password %}{{verify_password}}{% endif %}" class="form-control-2 form-pass-v" type="password" name="verify_password" required id="id_verify_password" /></td>
+               <label for="eye_icon_2"><div class="eye_icon pass2"><i class="fas fa-eye"></i></div></label> 
+                <input type="checkbox" name="eye_icon_v_password" id="eye_icon_2">
+            </tr>
+            </div>
+             {% if form.email.errors %}
+             <div class="fail_push email_error"><span class="angry_emoji"><i class="fas fa-times-circle"></i></span>
+               Email has already been registered!
+              </div>
+             {% endif %}       
+            <tr>
+                <th><label class="label_class" for="id_email">Email address:</label></th>
+                <td><input value="{% if email %}{{email}}{% endif %}" class="form-control-2" type="email" name="email" maxlength="254" id="id_email" /></td>
+            </tr>       
+      <div class="terms">
+        <input type="checkbox" name="terms_checkbox"  required id="main_form__checkbox" {% if request.POST %} checked {% endif %}> 
+        <span class="terms_text">
+        <label for="main_form__checkbox">Confirm you agree to our <a href="{% url 'central:terms_of_service' %}" class="terms_decorate" target="_blank"> terms of service</a></label>
+        </span>
+      </div>
+      <div class="btn_pass">
+        {% if request.POST %}
+        <button type="submit" class="login_act initial-join"><i class="fas fa-user-lock"></i> Create Account</button>
+        {% else %} 
+          <button type="submit" disabled="" class="login_act join"><i class="fas fa-user-lock"></i> Create Account</button>
+        {% endif %}
+        <div class="forgot_pass"><a href="{% url 'authorize:login' %}"> login instead?</a></div>
+        
+      </div>
+    </form>
+    <div class="ads">
+      <p class="advrts_header">Check Out!</p>
+      <p>Advertisements goes here!</p>
+      <p class="ads_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque quae dolorum ea voluptate, enim tempora aliquid asperiores iure dolorem necessitatibus, inventore architecto? Error, nesciunt illum culpa ab natus nulla placeat.
+      </p>
+    </div>
+  </div>
+</div>
+
+{% endblock section1_b %}
+
+{% block section2_a %}
+{% endblock section2_a %}
+
+{% block section2_b %}
+{% endblock section2_b %}
+
+
+{% block script %}
+
+{% include 'attachments/signup.html' %}
+
+{% endblock %}
+
+

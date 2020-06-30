@@ -1,0 +1,24 @@
+{
+    "name": "joint-access-programmer",
+    "short_name": "JAP",
+    "start_url": "https://www.joint-access-programmer.com",
+    "scope": "https://www.joint-access-programmer.com",
+    "display": "standalone",
+    "background_color": "#FFF",
+    "theme_color": "#2f195f",
+    "description": "Creating web interfaces, APIs, Backends, Algorithms, Scripts are insanely fun and satisfying, but can be difficult as well. Our main goal is to break down these heinous tasks simply plain.",
+    "dir": "ltr",
+    "lang": "en-US",
+    "orientation": "portrait-primary",
+    "icons": [{
+            "src": "img/favicon_pack/logo_192x192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        }, {
+            "src": "img/favicon_pack/logo_512x512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }]
+}
+
+

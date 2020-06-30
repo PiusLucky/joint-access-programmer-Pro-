@@ -1,0 +1,3 @@
+<script type="text/javascript">
+$(".contact_form").submit(function(a){a.preventDefault(),$(".ajax_loader").addClass("img_added"),$(".login_act").addClass("login_act_added");var e=$(this).serialize();$.ajax({type:"POST",url:"{% url 'central:post_contact' %}",data:e,success:function(a){a.info;$(".ajax_loader").removeClass("img_added"),$(".login_act").removeClass("login_act_added"),$(".login_act").addClass("success_ajax").addClass("join_unchecked").html('<i class="fas fa-check-circle"></i> Sent Successfully').attr("disabled","")},error:function(a){a.responseJSON.info;$(".ajax_loader").removeClass("img_added"),$(".login_act").removeClass("login_act_added").addClass("join_unchecked").removeAttr("disabled")}})});
+</script>

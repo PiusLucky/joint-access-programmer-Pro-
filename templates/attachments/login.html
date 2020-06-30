@@ -1,0 +1,4 @@
+{% load static %}
+<script>
+const check_login=(a,s,e,i)=>{a==s&&($(e)[0].style.display="block",$(i)[0].style.display="none")};$(".main_form").submit(function(a){a.preventDefault(),$(".ajax_loader").addClass("img_added"),$(".login_act").addClass("login_act_added");var s=$(this).serialize();$.ajax({type:"POST",url:"{% url 'authorize:post_login' %}",data:s,success:function(a){const s=a.info;check_login(s,"success",".success_alert",".fail"),$(".ajax_loader").removeClass("img_added"),$(".login_act").removeClass("login_act_added"),setTimeout(function(){window.location.href="/"})},error:function(a){const s=a.responseJSON.info;check_login(s,"failure",".fail",".success_alert"),$(".ajax_loader").removeClass("img_added"),$(".login_act").removeClass("login_act_added"),setTimeout(function(){$(".fail").fadeOut("slow")},4e3)}})}),script("{% static 'js/main.js' %}"),script("{% static 'js/logic.js' %}");
+</script>
