@@ -108,7 +108,7 @@
     {% for each_post in backend_category_post_query %}
     <div class="toggle_ctg__sub__content">
         <div class="toggle_ctg__others">            
-            <p><span class="star-icon">🌟</span>&nbsp;{{each_post.title}}</p>            
+            <p><span class="star-icon">🌟</span>&nbsp;{{each_post.title|upper}}</p>            
             <div class="toggle_ctg__others__middle">
                 <p>Read Time -
                  {% if each_post.read_time == 1 %}
@@ -172,7 +172,7 @@
     {% for each_post in algorithm_category_post_query %}
     <div class="toggle_ctg__sub__content">
         <div class="toggle_ctg__others">            
-            <p><span class="star-icon">🌟</span>&nbsp;{{each_post.title}}</p>            
+            <p><span class="star-icon">🌟</span>&nbsp;{{each_post.title|upper}}</p>            
             <div class="toggle_ctg__others__middle">
                 <p>Read Time -
                  {% if each_post.read_time == 1 %}
@@ -234,7 +234,7 @@
     {% for each_post in freeproject_category_post_query %}
     <div class="toggle_ctg__sub__content">
         <div class="toggle_ctg__others">            
-            <p><span class="star-icon">🌟</span>&nbsp;{{each_post.title}}</p>            
+            <p><span class="star-icon">🌟</span>&nbsp;{{each_post.title|upper}}</p>            
             <div class="toggle_ctg__others__middle">
                 <p>Read Time -
                  {% if each_post.read_time == 1 %}
@@ -297,7 +297,7 @@
         {% for each_post in premium_category_post_query %}
             <div class="toggle_ctg__sub__content">
                 <div class="toggle_ctg__others">            
-                    <p><span class="star-icon">🌟</span>&nbsp;{{each_post.title}}</p>            
+                    <p><span class="star-icon">🌟</span>&nbsp;{{each_post.title|upper}}</p>            
                     <div class="toggle_ctg__others__middle">
                         <p>Read Time -
                          {% if each_post.read_time == 1 %}
@@ -373,7 +373,7 @@
     {% for each_post in tips_category_post_query %}
     <div class="toggle_ctg__sub__content">
         <div class="toggle_ctg__others">            
-            <p><span class="star-icon">🌟</span>&nbsp;{{each_post.title}}</p>            
+            <p><span class="star-icon">🌟</span>&nbsp;{{each_post.title|upper}}</p>            
             <div class="toggle_ctg__others__middle">
                 <p>Read Time -
                  {% if each_post.read_time == 1 %}
