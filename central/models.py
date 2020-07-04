@@ -47,15 +47,15 @@ class Post(models.Model):
         max_upload_size=100000, blank=True, null=True
     )
     content = FroalaField(theme='dark', blank=False, null=False, help_text= """
-                               <ul>
-                                 <li>Change mode to Code View and add class="prettyprint beautify" </li>
+                               <ol>
+                                 <li>Change mode to Code View and add class="prettyprint beautify" to the pre class </li>
                                  <li>Use "#2f195f" as color for headers</li>
                                  <li>In pretty-printing html-code use http://hilite.me/ </li>
                                  <li>In uploading images into the florafield, the image might become smaller
                                    compared to its original size. Adjust by clicking on image, 
                                    ruler (change_size) make it more larger than it previously was.
                                 </li>
-                               </ul> 
+                               </ol> 
                                 """
                          )      
     draft = models.BooleanField(default=False)
