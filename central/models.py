@@ -48,9 +48,9 @@ class Post(models.Model):
     )
     content = FroalaField(theme='dark', blank=False, null=False, help_text= """
                                 1. Change mode to Code View and add 
-                                  ............
-                                  <pre class="prettyprint beautify" > </pre>
-                                  ............
+                                  <div style="background:black; color:white">
+                                  class="prettyprint beautify" >
+                                  </div>
                                 \n
                                 2. use "#2f195f" as color for headers
                                 \n
