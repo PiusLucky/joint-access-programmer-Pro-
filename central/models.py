@@ -47,8 +47,10 @@ class Post(models.Model):
         max_upload_size=100000, blank=True, null=True
     )
     content = FroalaField(theme='dark', blank=False, null=False, help_text= """
-                                1. Change mode to Code View and add class="prettyprint beautify" 
-                                to pre tag for elegant code highlighting.
+                                1. Change mode to Code View and add 
+                                  ............
+                                  <pre class="prettyprint beautify" > </pre>
+                                  ............
                                 \n
                                 2. use "#2f195f" as color for headers
                                 \n
