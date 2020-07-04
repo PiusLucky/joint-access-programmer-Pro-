@@ -47,20 +47,15 @@ class Post(models.Model):
         max_upload_size=100000, blank=True, null=True
     )
     content = FroalaField(theme='dark', blank=False, null=False, help_text= """
-                                1. Change mode to Code View and add 
-                                  <div style="background:black; color:white">
-                                  class="prettyprint beautify" >
-                                  </div>
-                                \n
-                                2. use "#2f195f" as color for headers
-                                \n
-                                3. In pretty-printing html-code use http://hilite.me/ 
-                                \n
-                                4. In uploading images into the florafield, the image might become smaller
+                               <ul>
+                                 <li>Change mode to Code View and add class="prettyprint beautify" </li>
+                                 <li>Use "#2f195f" as color for headers</li>
+                                 <li>In pretty-printing html-code use http://hilite.me/ </li>
+                                 <li>In uploading images into the florafield, the image might become smaller
                                    compared to its original size. Adjust by clicking on image, 
                                    ruler (change_size) make it more larger than it previously was.
-                                \n\n
-                                5. Always use SPACE instead of TAB in indenting a code block    
+                                </li>
+                               </ul> 
                                 """
                          )      
     draft = models.BooleanField(default=False)
