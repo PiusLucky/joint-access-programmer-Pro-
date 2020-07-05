@@ -6,6 +6,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{{post_title}} | joint-access-programmer.com</title>
+    <!-- Adding open graph -->
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{post_title}}" />
+    <meta property="og:description" content="{{meta_content|striptags|truncatechars_html:'200' }}" />
+    <meta property="og:url" content="{{ canonical_path }}" />
+    <meta property="og:site_name" content="Joint Access Programmer" />
+    <meta property="og:image" content="{{post_image_url}}" />
+    <meta name="twitter:card" content="summary" />
+    <!-- // Adding open graph -->
     <link rel="manifest" href="/static/manifest.json">
     <meta name="theme-color" content="#2f195f">
     <link rel="apple-touch-icon" href="{% static 'img/jap_logo.svg' %}"> 
