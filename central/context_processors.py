@@ -15,6 +15,7 @@ def category_limiter(category_type, limit):
 
 
 def major_data(request):
+    canonical_path = request.build_absolute_uri(request.path)
     email_form = EmailList_Form()
     all_post_non_draft = Post.objects.filter(draft=False).all()
     video_category = Post.objects.filter(draft=False, category= "video").all()
@@ -44,7 +45,8 @@ def major_data(request):
             "video_category_count" : video_category_count,  
             "video_category_t3" : video_category_t3,
             "all_post_non_draft_t3":all_post_non_draft_t3,
-            "posts_by_hits":posts_by_hits
+            "posts_by_hits":posts_by_hits,
+            "canonical_path":canonical_path
             }
 
 

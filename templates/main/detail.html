@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" href="{% static 'img/jap_logo.svg' %}"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <meta name="description"  content="{{meta_content|striptags|truncatechars_html:'200' }}">
-    <link rel="canonical" href="{{post.get_absolute_url}}" />
+    <link rel="canonical" href="{{ canonical_path }}" />
     <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}" />
     <link rel="apple-touch-icon" sizes="180x180" href="{% static  'img/favicon_pack/logo_180x180.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static  'img/favicon_pack/favicon-32x32.png' %}">
