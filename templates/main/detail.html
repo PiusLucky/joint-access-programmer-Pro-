@@ -14,8 +14,8 @@
     <meta property="og:url" content="{{ canonical_path }}" />
     <meta property="og:site_name" content="Joint Access Programmer" />
     <meta property="og:image" content="{{post_image_url}}" />
-    <meta property="article:published_time" content="{{post_published}}" />
-    <meta property="article:modified_time" content="{{post_last_updated}}" />
+    <meta property="article:published_time" content="{{post_published|date:'c'}}" />
+    <meta property="article:modified_time" content="{{post_last_updated|date:'c'}}" />
     <meta name="twitter:card" content="summary" />
     <!-- // Adding open graph -->
     <link rel="manifest" href="/static/manifest.json">
