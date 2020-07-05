@@ -9,6 +9,25 @@
     <title>{{title}} | joint-access-programmer.com</title>
     {% endblock title %}
     {% include 'attachments/pwa_script.html' %}
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <!-- Adding open graph -->
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Joint-access-programmer.com, simply created for developers." />
+    <meta property="og:description" content="Creating web interfaces, APIs, Backends, Algorithms, Scripts are insanely fun and satisfying, but can be difficult as well. Our main goal is to break down these heinous tasks simply plain." />
+    <meta property="og:url" content="{{ canonical_path }}" />
+    <meta property="og:site_name" content="Joint Access Programmer" />
+    <meta property="og:image" content="https://neilpatel.com/wp-content/uploads/2019/08/keywordoverview.png" />
+    <meta name="twitter:card" content="summary" />
+      <!-- // Adding open graph -->
+    <meta property="og:title" content="European Travel Destinations">
+    <meta property="og:description" content="Offering tour packages for individuals or groups.">
+    <meta property="og:image" content="http://euro-travel-example.com/thumbnail.jpg">
+    <meta property="og:url" content="http://euro-travel-example.com/index.htm">
+    <meta name="twitter:card" content="summary_large_image">
+
     <link rel="manifest" href="/static/manifest.json">
     <meta name="theme-color" content="#2f195f">
     <meta name="apple-mobile-web-app-capable" content="yes">
