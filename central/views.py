@@ -61,6 +61,7 @@ def article_detail(request, slug):
     post_read_time = post.read_time
     post_last_updated = post.last_updated
     post_category =  post.category
+    post_published =  post.timestamp
     if post_category == "premium":
         if request.user.is_staff:
             return render(request,'main/detail.html', {
@@ -71,7 +72,7 @@ def article_detail(request, slug):
                 'tips_tag_status':tips_tag_status, 'post_title':post_title,
                 'post_image_url':post_image_url, 'post_read_time':post_read_time,
                 'post_last_updated':post_last_updated, 'post_category':post_category,
-                "meta_content":meta_description
+                'meta_content':meta_description, 'post_published':post_published
             })
         else:
             status = "restricted"
@@ -83,7 +84,7 @@ def article_detail(request, slug):
                           'tips_tag_status':tips_tag_status, 'post_title':post_title,
                           'post_image_url':post_image_url, 'post_read_time':post_read_time,
                           'post_last_updated':post_last_updated, 'post_category':post_category,
-                          "meta_content":meta_description
+                           'meta_content':meta_description, 'post_published':post_published
             })
 
     else:
@@ -95,7 +96,7 @@ def article_detail(request, slug):
             'tips_tag_status':tips_tag_status, 'post_title':post_title,
             'post_image_url':post_image_url, 'post_read_time':post_read_time,
             'post_last_updated':post_last_updated, 'post_category':post_category,
-            "meta_content":meta_description
+            'meta_content':meta_description, 'post_published':post_published
         })
 
 
