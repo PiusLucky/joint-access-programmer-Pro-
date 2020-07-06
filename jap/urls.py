@@ -33,7 +33,7 @@ admin.site.site_header = 'JAP Administrator@Pius_Lucky'
 admin.site.site_title = 'JAP Administrator@Pius_Lucky'
 
 
-
+"https://joint-access-programmer.com/.well-known/brave-rewards-verification.txt"
 
 
 

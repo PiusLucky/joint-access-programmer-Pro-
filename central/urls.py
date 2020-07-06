@@ -3,7 +3,7 @@ from django.contrib.auth import views as auth_views
 from central.views import (
     landing_page, categories, user_interface, backend, algorithm, freebies,
     premium, tips, article_detail, terms_of_service, privacy_policy, cookies_policy, 
-    contact, post_contact, post_emaillist, search
+    contact, post_contact, post_emaillist, search, brave_rewards
 )
 
 
@@ -25,6 +25,6 @@ urlpatterns = [
     path(r'post/email/', post_emaillist, name="post_emaillist"),
     path(r'search/', search, name="search"),
     re_path(r'^(?P<slug>[-\w]+)/$', article_detail, name='article_detail'),
-    
+    path(r'.well-known/brave-rewards-verification.txt', brave_rewards, name="brave_rewards"),    
 ]
 

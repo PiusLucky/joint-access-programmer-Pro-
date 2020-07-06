@@ -272,7 +272,6 @@ def error_500(request):
     return render(request, template, context)
 
 
-
-
-
-
+def brave_rewards(request):
+    template = ".well-known/brave-rewards-verification.txt"
+    return render(request, template, {})
