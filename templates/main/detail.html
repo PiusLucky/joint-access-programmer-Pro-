@@ -208,6 +208,8 @@
 
 {% block script %}
 <script>
+// remove floala node from page completely
+document.body.querySelector('[data-f-id="pbf"]').remove()
 script("{% static 'js/project_scripts/main.js' %}");
 script("{% static 'dependencies/js/run_prettify.js' %}");
 </script>

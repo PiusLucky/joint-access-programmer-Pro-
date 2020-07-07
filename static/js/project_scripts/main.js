@@ -1,5 +1,3 @@
-// remove floala from page completely
-document.body.querySelector('[data-f-id="pbf"]').remove()
 let slides = document.querySelectorAll('.trending__article .slide');
 let nav_width = $(".navigation").width();
 let currentSlide = 0;
