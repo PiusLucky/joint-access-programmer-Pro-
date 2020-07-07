@@ -109,24 +109,24 @@
         {% if post.badges == "python" %}
         <span>
             <a href="{% url 'central:backend' %}" target="_blank">
-                <img src="{% static 'img/badges/python_badge.svg' %}" alt="python badge" />
+                <img src="{% static 'img/badges/python_badge.svg' %}" class="shift_tagger" alt="python badge" />
             </a>
         </span>
         {% elif post.badges == "javascript" %}
         <span>
             <a href="{% url 'central:user_interface' %}" target="_blank">
-                <img src="{% static 'img/badges/js_badge.svg' %}" alt="javascript badge" />
+                <img src="{% static 'img/badges/js_badge.svg' %}" class="shift_tagger" alt="javascript badge" />
             </a>
         </span>
         {% elif post.badges == "all" %}
         <span>
             <a href="{% url 'central:backend' %}" target="_blank">
-                <img src="{% static 'img/badges/python_badge.svg' %}" alt="python badge" />
+                <img src="{% static 'img/badges/python_badge.svg' %}" class="shift_tagger" alt="python badge" />
             </a>
         </span>
         <span>
             <a href="{% url 'central:user_interface' %}" target="_blank">
-                <img src="{% static 'img/badges/js_badge.svg' %}" alt="javascript badge" />
+                <img src="{% static 'img/badges/js_badge.svg' %}" class="shift_tagger" alt="javascript badge" />
             </a>
         </span>
         {% endif %}
