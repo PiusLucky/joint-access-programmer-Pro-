@@ -232,6 +232,7 @@ def search(request):
     title = "Search"
     if 'query' in request.GET and request.GET['query']:
         myquery = request.GET['query']
+        myquery_caps = myquery.title()
         post = Post.objects.filter(
         Q(title__icontains=myquery)|
         Q(content__icontains=myquery)|
@@ -251,11 +252,11 @@ def search(request):
             post_query = paginator.page(1)
         except EmptyPage:
             post_query = paginator.page(paginator.num_pages)                                            
-    return render(request, 'main/search_result.html', 
-                    {'post_query': post_query,
-                     'query': myquery,"title":title, 
-                     "number_of_posts":number_of_posts} 
-                    )
+    return render(request, 'main/search_result.html', {
+        'post_query': post_query,
+        'query': myquery,"myquery_caps":myquery_caps,
+        "title":title, "number_of_posts":number_of_posts 
+    })
 
 def csrf_byepass(request, reason=""):
     # return same page
