@@ -4,9 +4,9 @@ from central.models import Post, TagChoices, EmailList, Contact
 
 class PostModelAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
-    list_display = ["id","hits", "title", "category","draft", "keywords"]
+    list_display = ["id","hits", "title", "category","draft"]
     list_display_links = ["id"]
-    list_editable = ["title", "draft","category", "keywords"]
+    list_editable = ["title", "draft","category"]
     list_filter = ["category", "draft", "read_time", "last_updated", "timestamp"]
     search_fields = ["id","read_time", "title","slug","category","draft","content"]
     exclude = ('url_tracking', 'hits','read_time', )

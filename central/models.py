@@ -63,8 +63,7 @@ class Post(models.Model):
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
     url_tracking = models.TextField(_('URL'), max_length=2000, blank=True, null=True)
     hits = models.PositiveIntegerField(_('Hits'), default=0) 
-    read_time = models.PositiveIntegerField(_('Read Time'), default=0) 
-    keywords = models.TextField(max_length=10000, blank=False, null=False)                
+    read_time = models.PositiveIntegerField(_('Read Time'), default=0)             
     meta_description = models.TextField(max_length=10000, blank=False, null=False) 
 
     def save(self, *args, **kwargs):
