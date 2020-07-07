@@ -32,7 +32,7 @@ def article_detail(request, slug):
         post.hits += 1
         post.save()
         request.session[main_sec_url_tracking] = main_sec_url_tracking
-    post_title = post.title
+    post_title = post.title.title()
     content = post.content
     meta_description = post.meta_description
     post_category = post.category
