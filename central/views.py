@@ -240,7 +240,6 @@ def search(request):
         Q(read_time__icontains=myquery)|
         Q(last_updated__icontains=myquery)|
         Q(url_tracking__icontains=myquery)|
-        Q(keywords__icontains=myquery)|
         Q(meta_description__icontains=myquery)
         ).filter(draft=False).all()
         number_of_posts = post.count()
