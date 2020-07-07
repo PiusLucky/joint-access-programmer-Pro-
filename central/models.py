@@ -36,7 +36,7 @@ class Post(models.Model):
     category = models.CharField(max_length=100, choices = category_selection, default='------') 
     badges = models.CharField(max_length=100, choices = badge_selection, default='------') 
     tags = models.ManyToManyField(TagChoices, blank=False)
-    title = models.CharField(max_length=120, blank=False, null=False)
+    title = models.CharField(max_length=60, blank=False, null=False)
     slug = models.SlugField(unique=True, blank=True, null=True, help_text=""" 
           When django prepopulate slugs, it normally omits prepositions, do not forget
           to add it manually
