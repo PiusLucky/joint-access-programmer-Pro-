@@ -568,11 +568,13 @@
                 {% for single_post in posts_by_hits %}
                 {% if forloop.first %}
                 <a  class="slide current" href="{{single_post.get_absolute_url}}">
-                    {{single_post.title|upper|truncatechars_html:38|safe}} [{{single_post.last_updated|date:"M d, Y"}}]
+                    <span class="sml_size_tr">{{single_post.title|upper|truncatechars_html:38|safe}} [{{single_post.last_updated|date:"M d, Y"}}]</span>
+                    <span class="lg_size_tr">{{single_post.title|upper|truncatechars_html:48|safe}} [{{single_post.last_updated|date:"M d, Y"}}]</span>
                 </a>
                 {% elif forloop.counter != 1 %}
                 <a  class="slide" href="{{single_post.get_absolute_url}}">
-                    {{single_post.title|upper|truncatechars_html:38|safe}} [{{single_post.last_updated|date:"M d, Y"}}]
+                     <span class="sml_size_tr">{{single_post.title|upper|truncatechars_html:38|safe}} [{{single_post.last_updated|date:"M d, Y"}}]</span>
+                     <span class="lg_size_tr">{{single_post.title|upper|truncatechars_html:48|safe}} [{{single_post.last_updated|date:"M d, Y"}}]</span>
                 </a>
                 {% endif %}
                 {% endfor %}
