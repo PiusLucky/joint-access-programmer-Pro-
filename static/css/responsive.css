@@ -111,6 +111,15 @@
     body {
         overflow-x: hidden;
     }
+    .nav_youtube {
+        display: block;
+        background: #2F195F;
+        padding: .3rem 1rem;
+        border-radius: .2rem;
+        margin-top: -.25rem;
+        color: #fff;
+        box-shadow: 2px 2px 6px grey;
+    }
     .search_div {
         padding-left: 2rem;
     }
