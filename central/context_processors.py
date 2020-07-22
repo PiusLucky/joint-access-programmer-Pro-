@@ -28,6 +28,15 @@ def major_data(request):
         """
         return all_post_non_draft.order_by('-hits')[:limit]
 
+    def newest_post(limit):
+        """
+        where limit is the total number of blogposts to display based on the highest
+        hits
+        limit: int
+        
+        """
+        return all_post_non_draft.order_by('-last_updated')[:limit]
+
 
     # top three posts on specific categories
     all_post_non_draft_t3 = category_limiter(all_post_non_draft, 3)
@@ -35,12 +44,16 @@ def major_data(request):
     # post based on highest hits
     posts_by_hits = hits_limiter(3)
 
+    # post based on time posted
+    newest_post = newest_post(1)
+
     # return all in context
     return {
             "all_post_non_draft" : all_post_non_draft,
             "all_post_non_draft_t3":all_post_non_draft_t3,
             "posts_by_hits":posts_by_hits,
-            "canonical_path":canonical_path
+            "canonical_path":canonical_path,
+            "newest_post":newest_post
             }
 
 

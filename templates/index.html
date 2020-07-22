@@ -389,7 +389,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="nav_items left-side"><a class="nav_youtube" rel="noreferrer" href="https://www.youtube.com/channel/UCXXFcoxbDgYfhLnko9uIChw?sub_confirmation=1" target="_blank">Explore&nbsp;<i class="fa fa-link"></i> </a></li>
+                    <li class="nav_items left-side"><a class="nav_youtube" rel="noreferrer" href="{% if newest_post %}{% for post in newest_post %} {{post.get_absolute_url}} {% endfor %} {% endif %}">Just In&nbsp;<i class="fa fa-link"></i> </a></li>
                     <li class="nav_items left-side contact">
                         <a href="{% url 'central:contact' %}">
                             Contact Us
@@ -641,14 +641,13 @@
                     </a>
                 </div>
                 <div class="youtube_sub">
-                    <a rel="noreferrer" href="https://www.youtube.com/channel/UCXXFcoxbDgYfhLnko9uIChw?sub_confirmation=1" target="_blank">
-                        <p class="header">
-                            Join us on Youtube
-                        </p>
-                        <p class="content">
-                            We are available on a very large community. Youtube is one of the quickest platforms we can reach out, allow push notification on the blog and hit the suscribe and notification button on Youtube. 
-                        </p>
-                   </a>
+                    <p class="header">
+                        Always Check Back
+                    </p>
+                    <p class="content">
+                        We urge our users/members to always check back for new and updated contents twice or more every week, so you always stay
+                        abreast of new technologies and the neccesary improvemnets covered.
+                    </p>
                 </div>
                 <div class="patreon_sub">
                     <a rel="noreferrer" href="https://www.patreon.com/jointaccessprogrammer" target="_blank">
@@ -841,11 +840,11 @@
                 <i class="fas fa-envelope-open-text"></i>support@joint-access-programmer.com
             </p>
         </div>
-        <a rel="noreferrer" href="https://www.youtube.com/channel/UCXXFcoxbDgYfhLnko9uIChw?sub_confirmation=1" target="_blank">
-            <div class="footer__social">
-                <i class="fab fa-youtube"></i>
-            </div>
-        </a>
+       
+        <div class="footer__social">
+            <i class="fas fa-heart"></i>
+        </div>
+     
     </div>
 
     <div class="footer__base">
