@@ -389,7 +389,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="nav_items left-side"><a class="nav_youtube" rel="noreferrer" href="{% if newest_post %}{% for post in newest_post %} {{post.get_absolute_url}} {% endfor %} {% endif %}">Just In</a></li>
+                    <li class="nav_items left-side"><a class="nav_youtube" rel="noreferrer" href="{% if newest_post %}{% for post in newest_post %} {{post.get_absolute_url}} {% endfor %} {% endif %}">Just In&nbsp;<i class="fa fa-link"></i> </a></li>
                     <li class="nav_items left-side contact">
                         <a href="{% url 'central:contact' %}">
                             Contact Us
