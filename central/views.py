@@ -65,26 +65,26 @@ def article_detail(request, slug):
     if post_category == "premium":
         if request.user.is_staff:
             return render(request,'main/detail.html', {
-                'post': post, 'read_time':read_time, 
-                'post_tags':post_tags, 'ui_tag_status':ui_tag_status,
-                'bke_tag_status':bke_tag_status,'algo_tag_status':algo_tag_status, 
-                'free_tag_status':free_tag_status, 'prm_tag_status':prm_tag_status,
-                'tips_tag_status':tips_tag_status, 'post_title':post_title,
-                'post_image_url':post_image_url, 'post_read_time':post_read_time,
-                'post_last_updated':post_last_updated, 'post_category':post_category,
-                'meta_content':meta_description, 'post_published':post_published
+              'post': post, 'read_time':read_time, 
+              'post_tags':post_tags, 'ui_tag_status':ui_tag_status,
+              'bke_tag_status':bke_tag_status,'algo_tag_status':algo_tag_status, 
+              'free_tag_status':free_tag_status, 'prm_tag_status':prm_tag_status,
+              'tips_tag_status':tips_tag_status, 'post_title':post_title,
+              'post_image_url':post_image_url, 'post_read_time':post_read_time,
+              'post_last_updated':post_last_updated, 'post_category':post_category,
+              'meta_content':meta_description, 'post_published':post_published
             })
         else:
             status = "restricted"
             return render(request,'main/detail.html', {
-                          'status':status,
-                          'post_tags':post_tags, 'ui_tag_status':ui_tag_status,
-                          'bke_tag_status':bke_tag_status,'algo_tag_status':algo_tag_status, 
-                          'free_tag_status':free_tag_status, 'prm_tag_status':prm_tag_status,
-                          'tips_tag_status':tips_tag_status, 'post_title':post_title,
-                          'post_image_url':post_image_url, 'post_read_time':post_read_time,
-                          'post_last_updated':post_last_updated, 'post_category':post_category,
-                           'meta_content':meta_description, 'post_published':post_published
+              'status':status,
+              'post_tags':post_tags, 'ui_tag_status':ui_tag_status,
+              'bke_tag_status':bke_tag_status,'algo_tag_status':algo_tag_status, 
+              'free_tag_status':free_tag_status, 'prm_tag_status':prm_tag_status,
+              'tips_tag_status':tips_tag_status, 'post_title':post_title,
+              'post_image_url':post_image_url, 'post_read_time':post_read_time,
+              'post_last_updated':post_last_updated, 'post_category':post_category,
+              'meta_content':meta_description, 'post_published':post_published
             })
 
     else:

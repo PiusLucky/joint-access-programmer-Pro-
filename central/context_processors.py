@@ -18,8 +18,6 @@ def major_data(request):
     canonical_path = request.build_absolute_uri(request.path)
     email_form = EmailList_Form()
     all_post_non_draft = Post.objects.filter(draft=False).all()
-    video_category = Post.objects.filter(draft=False, category= "video").all()
-    video_category_count = len(video_category)
 
     def hits_limiter(limit):
         """
@@ -32,7 +30,6 @@ def major_data(request):
 
 
     # top three posts on specific categories
-    video_category_t3 = category_limiter(video_category, 3)
     all_post_non_draft_t3 = category_limiter(all_post_non_draft, 3)
 
     # post based on highest hits
@@ -41,9 +38,6 @@ def major_data(request):
     # return all in context
     return {
             "all_post_non_draft" : all_post_non_draft,
-            "video_category" : video_category,
-            "video_category_count" : video_category_count,  
-            "video_category_t3" : video_category_t3,
             "all_post_non_draft_t3":all_post_non_draft_t3,
             "posts_by_hits":posts_by_hits,
             "canonical_path":canonical_path

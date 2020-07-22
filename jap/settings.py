@@ -138,6 +138,7 @@ AUTHENTICATION_BACKENDS = (
     'authorize.email_auth.EmailAuthBackend',
 )
 
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Africa/Lagos'
