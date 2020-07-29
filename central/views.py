@@ -193,6 +193,13 @@ def contact(request):
     }
     return render(request, template, context)
 
+def about(request):
+    title = "About"
+    template = "main/about.html"
+    context = {
+        "title":title
+    }
+    return render(request, template, context)
 
 def post_contact(request):
     if request.method == 'POST' and request.is_ajax():
