@@ -64,7 +64,6 @@ class Migration(migrations.Migration):
                 ('url_tracking', models.TextField(blank=True, max_length=2000, null=True, verbose_name='URL')),
                 ('hits', models.PositiveIntegerField(default=0, verbose_name='Hits')),
                 ('read_time', models.PositiveIntegerField(default=0, verbose_name='Read Time')),
-                ('keywords', models.TextField(max_length=10000)),
                 ('meta_description', models.TextField(max_length=10000)),
                 ('tags', models.ManyToManyField(to='central.TagChoices')),
             ],
