@@ -35,7 +35,7 @@ def major_data(request):
         limit: int
         
         """
-        return all_post_non_draft.order_by('-last_updated')[:limit]
+        return all_post_non_draft.order_by('-timestamp')[:limit]
 
 
     # top three posts on specific categories

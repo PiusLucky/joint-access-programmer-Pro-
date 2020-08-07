@@ -86,7 +86,7 @@ class Post(models.Model):
         return self.title
         
     class Meta:
-        ordering = ["-timestamp", "-last_updated"]
+        ordering = ["-timestamp"]
 
 
 class Contact(models.Model):
