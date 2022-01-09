@@ -1,0 +1,65 @@
+{% extends "index.html" %}
+{% load static %}
+{% block section_1 %}
+<div class="detail_section_desk auth_section">
+    <div class="center_text cat_desktop">
+        <p class="center_text__top center_text__top__cat_text">
+         🙌 Success, Account Activated!
+        </p>
+        <p class="center_text__middle center_text__middle__desk m_t">
+            Well done, you are now part of us!
+        </p>
+        <div class="center_text__description desc">
+            Joining a great Academy takes you a foot closer to success.
+        </div>
+        <div class="search_form search_form_desk">
+            <form  method="GET" action="/search/">
+                <div>
+                    <input type="text" name="query" aria-label="..." required="" autofocus="" placeholder="Search for any article..." class="form-control"> 
+                </div> 
+                <button class="search_btn_icon" type="submit" aria-label="Search"><i class="fa fa-search"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock section_1 %}
+
+{% block section1_b %}
+<div class="signup_form">
+    <div class="form_header"><i class="fas fa-user"></i><span class="create_account">Active User</span></div>
+    <div class="form_ads">
+        <div class="main_form content_adjust">
+             <strong class="viola">viola!</strong> Your account is activated successfully!
+             <p>You are now logged in. Check out the different categories of UI/UX, Backend, Scripts and others...</p>
+             <div class="login_btn_back">
+                <a href="{% url 'central:landing_page' %}"> <span class="login_return">Return Home?</span></a>
+             </div>
+        </div>
+        <div class="ads">
+            <p class="advrts_header">Check Out!</p>
+            <p class="ads_text">
+            </p>
+        </div>
+    </div>
+
+</div>
+
+{% endblock section1_b %}
+
+{% block section2_a %}
+{% endblock section2_a %}
+
+{% block section2_b %}
+{% endblock section2_b %}
+
+
+
+
+
+
+
+
+
+
+

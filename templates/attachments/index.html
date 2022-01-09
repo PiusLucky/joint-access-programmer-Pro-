@@ -1,0 +1,5 @@
+{% load static %}
+<script src="{% static 'dependencies/js/jquery.min.js' %}"></script>
+<script type="text/javascript">
+function script(e){const a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=e,a.defer="",document.getElementsByTagName("head")[0].appendChild(a)}$(".emaillist").submit(function(e){e.preventDefault();var a=$(this).serialize();$.ajax({type:"POST",url:"{% url 'central:post_emaillist' %}",data:a,success:function(e){e.info;$(".email_btn").addClass("success_ajax").addClass("join_unchecked_email").html('<i class="fas fa-check-circle"></i> Success').attr("disabled","")},error:function(e){const a=e.responseJSON.info;$(".email_btn").addClass("failure_ajax").addClass("join_unchecked").html(`<i class="fas fa-times-circle"></i> ${a}`).attr("disabled",""),setTimeout(function(){$(".email_btn").removeClass("failure_ajax").removeClass("join_unchecked").html("Join").removeAttr("disabled")},4e3)}})}),script("{% static 'js/project_scripts/main.js' %}");
+</script>

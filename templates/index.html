@@ -1,0 +1,873 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-us">
+{% block head %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    {% block title %}
+    <title>{{title}}: Taking Your Coding Career To The Next Level!</title>
+    {% endblock title %}
+    {% include 'attachments/pwa_script.html' %}
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <!-- Adding open graph -->
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Joint-access-programmer.com, simply created for developers." />
+    <meta property="og:description" content="Creating web interfaces, APIs, Backends, Algorithms, Scripts are insanely fun and satisfying, but can be difficult as well. Our main goal is to break down these heinous tasks simply plain." />
+    <meta property="og:url" content="{{ canonical_path }}" />
+    <meta property="og:site_name" content="Joint Access Programmer" />
+    <meta name="twitter:card" content="summary" />
+      <!-- // Adding open graph -->
+    <link rel="manifest" href="/static/manifest.json">
+    <meta name="theme-color" content="#2f195f">
+    <meta name="msvalidate.01" content="FF4A9A651AC4C69EA5C0444405C51FD3" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="joint-access-programmer">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="apple-touch-icon" href="{% static 'img/jap_logo.svg' %}"> 
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon_pack/favicon.ico' %}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static  'img/favicon_pack/logo_180x180.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static  'img/favicon_pack/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static  'img/favicon_pack/favicon-16x16.png' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta name="description"  content="Joint-access-programmer is an online platform that provides developers and developers-alike solutions to problems in web technologies. Creating web interfaces, APIs, Backends, Algorithms, Scripts are insanely fun and satisfying, but can be difficult as well. Our main goal is to break down these heinous tasks simply plain.">
+    <link rel="canonical" href="{{ canonical_path }}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'dependencies/css/all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+    <script data-ad-client="ca-pub-8540441848048347" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+{% endblock head %}
+<body id="top_most">
+<div class="overall_wrapper">
+    <div class="navigation_search">
+        <form method="GET" action="/search/">
+        <input type="text" name="query" aria-label="..." required="" autofocus="" placeholder="Search for any article..." class="nav_search">
+        <button type="submit" class="nav_search_icon" ><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+    <div class="cookies">
+        <div><i class="fas fa-cookie"></i>This website uses cookies to improve user experience. <a href="{% url 'central:cookies_policy' %}" target="_blank" class="learn_more">Cookies Policy</a> </div>
+        <div><button id="store-cookie" class="enable-cookies">Accept</button></div>
+    </div>
+
+    <div class="top_hr"></div>
+    <a href="#top_most">
+        <div class="dummy">
+            <i class="fas fa-angle-up"></i>
+        </div>
+    </a>
+    <div class="navigation">
+        <div class="logo">
+            <input class="input_raw" name="input_name" type="checkbox" id="nav-id" />
+            <label class="menu-icon" for="nav-id">
+                <span class="hamburger__icon1"></span>
+            </label>    
+            <a href="{% url 'central:landing_page' %}"> <img src="{% static 'img/jap_logo.svg' %}" class="logo__image" alt="logo"></a>
+            <div class="hidden_mobile__left">
+                <ul class="flex__nav_items">
+                    <li class="nav_items left-side">
+                        <a href="{% url 'central:landing_page' %}">
+                        <span class="home">Home</span>
+                        </a>
+                    </li>
+                    <li class="nav_items left-side cat_controller">
+                        <label for="forcat">
+                            <span class="category">Category&nbsp;<i class="fas fa-chevron-down"></i></span>
+                        </label>                    
+                        <input type="checkbox" name="forcat" id="forcat">
+                        <div class="cat_wrapper">
+                            <div class="cat_left_side">
+                                <ul class="forcat_ref">
+                                    <a href="{% url 'central:user_interface' %}"><li><span class="left_sider left_sider1 active">UI/UX</span> </li></a>
+                                    <a href="{% url 'central:backend' %}"><li><span class="left_sider left_sider2">Backend</span> </li></a>
+                                    <a href="{% url 'central:algorithm' %}"><li><span class="left_sider left_sider3">Algorithms</span> </li></a>
+                                    <a href="{% url 'central:freebies' %}"><li><span class="left_sider left_sider4">Free Projects</span> </li></a>
+                                    <a href="{% url 'central:premium' %}"><li><span class="left_sider left_sider5">Premium Contents</span> </li></a>
+                                </ul>
+                            </div>
+                            <div class="vertical_line"></div>
+                            <div class="dynamic_content">
+                                <div class="cat_content_1">
+                                    <div class="all_ui">
+                                        {% if ui_category_t3 %}
+                                        {% for post in ui_category_t3 %}
+                                        {% if forloop.first %}
+                                        <div class="cat_content_1__sub1">
+                                            <a href="{{post.get_absolute_url}}">
+                                            <div class="tag_wrapper"> 
+                                                <span class="tag">UI/UX</span>
+                                            </div>
+                                            <div class="nav_image">
+                                                <img src="https://res.cloudinary.com/hjsvnocvg/image/upload/w_80,h_70/v1/{{post.image.name}}" class="resize content__thumbnail nav_image__image" alt="article thumbnail">
+                                            </div>
+                                            <div class="title">{{post.title|safe}} | joint-access-programmer.com</div>
+                                            <div class="content__date">
+                                                {{post.last_updated|date:"M d, Y"}}
+                                            </div>
+                                            </a>
+                                        </div>
+                                        
+                                        {% elif forloop.counter == 2 %}
+                                        <div class="cat_content_1__sub2">
+                                            <a href="{{post.get_absolute_url}}">
+                                            <div class="tag_wrapper"> 
+                                                <span class="tag">UI/UX</span>
+                                            </div>
+                                            <img src="https://res.cloudinary.com/hjsvnocvg/image/upload/w_80,h_70/v1/{{post.image.name}}" class="resize content__thumbnail nav_image__image" alt="article thumbnail">
+                                            <div class="title">{{post.title|safe}} | joint-access-programmer.com</div>
+                                            <div class="content__date">
+                                                {{post.last_updated|date:"M d, Y"}}
+                                            </div>
+                                            </a>
+                                        </div>
+                                        {% else %}
+                                        <div class="cat_content_1__sub3">
+                                            <a href="{{post.get_absolute_url}}">
+                                            <div class="tag_wrapper"> 
+                                                <span class="tag">UI/UX</span>
+                                            </div>
+                                            <div class="nav_image">
+                                                <img src="https://res.cloudinary.com/hjsvnocvg/image/upload/w_80,h_70/v1/{{post.image.name}}" class="resize content__thumbnail nav_image__image" alt="article thumbnail">
+                                            </div>
+                                            <div class="title">{{post.title|safe}} | joint-access-programmer.com</div>
+                                            <div class="content__date">
+                                                {{post.last_updated|date:"M d, Y"}}
+                                            </div>
+                                            </a>
+                                        </div>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endif %} 
+                                    </div>
+                                    
+                                    <div class="c_all">
+                                        <a href="{% url 'central:user_interface' %}#ui-showcase">
+                                        <span class="c_all__btn">   
+                                            View more <i class="fa fa-chevron-down"></i>    
+                                        </span>
+                                        </a>
+                                    </div>  
+                                                                        
+                                </div>
+                                <div class="cat_content_2">
+                                    <div class="all_backend">
+                                        {% if backend_category_t3 %}
+                                        {% for post in backend_category_t3 %}
+                                        {% if forloop.first %}
+                                        <div class="cat_content_1__sub1">
+                                            <a href="{{post.get_absolute_url}}">
+                                            <div class="tag_wrapper"> 
+                                                <span class="tag">Backend</span>
+                                            </div>
+                                            <div class="nav_image">
+                                                <img src="https://res.cloudinary.com/hjsvnocvg/image/upload/w_80,h_70/v1/{{post.image.name}}" class="resize content__thumbnail nav_image__image" alt="article thumbnail">
+                                            </div>
+                                            <div class="title">{{post.title|safe}} | joint-access-programmer.com</div>
+                                            <div class="content__date">
+                                                {{post.last_updated|date:"M d, Y"}}
+                                            </div>
+                                            </a>
+                                        </div>
+                                        
+                                        {% elif forloop.counter == 2 %}
+                                        <div class="cat_content_1__sub2">
+                                            <a href="{{post.get_absolute_url}}">
+                                            <div class="tag_wrapper"> 
+                                                <span class="tag">Backend</span>
+                                            </div>
+                                            <img src="https://res.cloudinary.com/hjsvnocvg/image/upload/w_80,h_70/v1/{{post.image.name}}" class="resize content__thumbnail nav_image__image" alt="article thumbnail">
+                                            <div class="title">{{post.title|safe}} | joint-access-programmer.com</div>
+                                            <div class="content__date">
+                                                {{post.last_updated|date:"M d, Y"}}
+                                            </div>
+                                            </a>
+                                        </div>
+                                        {% else %}
+                                        <div class="cat_content_1__sub3">
+                                            <a href="{{post.get_absolute_url}}">
+                                            <div class="tag_wrapper"> 
+                                                <span class="tag">Backend</span>
+                                            </div>
+                                            <div class="nav_image">
+                                                <img src="https://res.cloudinary.com/hjsvnocvg/image/upload/w_80,h_70/v1/{{post.image.name}}" class="resize content__thumbnail nav_image__image" alt="article thumbnail">
+                                            </div>
+                                            <div class="title">{{post.title|safe}} | joint-access-programmer.com</div>
+                                            <div class="content__date">
+                                                {{post.last_updated|date:"M d, Y"}}
+                                            </div>
+                                            </a>
+                                        </div>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endif %} 
+                                    </div>
+                                    
+                                    <div class="c_all">
+                                        <a href="{% url 'central:backend' %}#backend-showcase">
+                                        <span class="c_all__btn">
+                                            View all <i class="fa fa-chevron-down"></i>
+                                        </span>
+                                        </a>    
+                                    </div>      
+                                                                        
+                                </div>
+
+                                <div class="cat_content_3">
+                                    <div class="all_algorithm">
+                                        {% if algorithm_category_t3 %}
+                                        {% for post in algorithm_category_t3 %}
+                                        {% if forloop.first %}
+                                        <div class="cat_content_1__sub1">
+                                            <a href="{{post.get_absolute_url}}">
+                                            <div class="tag_wrapper"> 
+                                                <span class="tag">Algorithms</span>
+                                            </div>
+                                            <div class="nav_image">
+                                                <img src="https://res.cloudinary.com/hjsvnocvg/image/upload/w_80,h_70/v1/{{post.image.name}}" class="resize content__thumbnail nav_image__image" alt="article thumbnail">
+                                            </div>
+                                            <div class="title">{{post.title|safe}} | joint-access-programmer.com</div>
+                                            <div class="content__date">
+                                                {{post.last_updated|date:"M d, Y"}}
+                                            </div>
+                                            </a>
+                                        </div>
+                                        
+                                        {% elif forloop.counter == 2 %}
+                                        <div class="cat_content_1__sub2">
+                                            <a href="{{post.get_absolute_url}}">
+                                            <div class="tag_wrapper"> 
+                                                <span class="tag">Algorithms</span>
+                                            </div>
+                                            <img src="https://res.cloudinary.com/hjsvnocvg/image/upload/w_80,h_70/v1/{{post.image.name}}" class="resize content__thumbnail nav_image__image" alt="article thumbnail">
+                                            <div class="title">{{post.title|safe}} | joint-access-programmer.com</div>
+                                            <div class="content__date">
+                                                {{post.last_updated|date:"M d, Y"}}
+                                            </div>
+                                            </a>
+                                        </div>
+                                        {% else %}
+                                        <div class="cat_content_1__sub3">
+                                            <a href="{{post.get_absolute_url}}">
+                                            <div class="tag_wrapper"> 
+                                                <span class="tag">Algorithms</span>
+                                            </div>
+                                            <div class="nav_image">
+                                                <img src="https://res.cloudinary.com/hjsvnocvg/image/upload/w_80,h_70/v1/{{post.image.name}}" class="resize content__thumbnail nav_image__image" alt="article thumbnail">
+                                            </div>
+                                            <div class="title">{{post.title|safe}} | joint-access-programmer.com</div>
+                                            <div class="content__date">
+                                                {{post.last_updated|date:"M d, Y"}}
+                                            </div>
+                                            </a>
+                                        </div>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endif %} 
+                                    </div>
+                                    
+                                    <div class="c_all">
+                                        <a href="{% url 'central:algorithm' %}#algorithm-showcase">
+                                        <span class="c_all__btn">
+                                            View all <i class="fa fa-chevron-down"></i>
+                                        </span>
+                                        </a>
+                                    </div>
+                                                                    
+                                </div>
+                                <div class="cat_content_4">
+                                    <div class="header"><img src="{% static 'img/project.svg' %}" alt="responsive icon" class="s_ctg__icon_size"></div>
+                                    <div class="tag">Free Projects</div>
+                                    <div class="title"> <span class="first_half">Get free projects</span> ☕ <span class="second_half">Source code</span></div>
+                                    <div class="c_all">
+                                        <a href="{% url 'central:freebies' %}#free-projects-showcase">
+                                        <span class="try_btn">Try for free</span>
+                                        </a>
+                                    </div>     
+                                </div>
+                                <div class="cat_content_5">
+                                    <div class="cnt5_flexie">
+                                        <div class="header"><img src="{% static 'img/project_premium.svg' %}" alt="responsive icon" class="s_ctg__icon_size"></div>
+                                        <div class="tag">&nbsp;Premium Content</div>
+                                    </div>
+                                    <div class="cnt5_flexie_all">
+                                        <span class="cnt5__little_flexie">All benefits include :</span>
+                                        <ul class="cnt5__li_flexie">
+                                            <li>Source Codes</li>
+                                            <li>Prototypes</li>
+                                            <li>Reference materials</li>
+                                            <li>Domain & Hosting advice</li>
+                                            <li>24/7 support</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="c_all">
+                                        <a href="{% url 'central:premium' %}#premium-projects-showcase">
+                                        <span class="prm_btn">Go Premium</span>
+                                        </a>
+                                    </div>   
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav_items left-side tip_controller">
+                        <label for="fortip">
+                            <span class="tip">Tips&nbsp;<i class="fas fa-chevron-down"></i></span>
+                        </label>                    
+                        <input type="checkbox" name="fortip" id="fortip">
+                        <div class="tip_wrapper">
+                            <div class="tip_left_side">
+                                <ul class="fortip_ref">
+                                    <a href="{% url 'central:tips' %}"><li><span class="y_Subscribe">More Tips</span> </li></a>
+                                </ul>
+                            </div>
+                            <div class="dynamic_content">
+                                <div class="tip_content_1">
+                                    <div class="all_ui">
+                                        {% if tips_category_t3 %}
+                                        {% for post in tips_category_t3 %}
+                                        {% if forloop.first %}
+                                        <div class="tip_content_1__sub1">
+                                            <a href="{{post.get_absolute_url}}">
+                                                <div class="tag_wrapper"> 
+                                                    <span class="tag">Q~Tips</span>
+                                                </div>
+                                                <div class="nav_image_t">
+                                                    <img src="https://res.cloudinary.com/hjsvnocvg/image/upload/w_80,h_70/v1/{{post.image.name}}" class="resize content__thumbnail nav_image__image" alt="article thumbnail">
+                                                </div>
+                                                <div class="title">{{post.title|safe}} | joint-access-programmer.com</div>
+                                                <div class="content__date">
+                                                    {{post.last_updated|date:"M d, Y"}}
+                                                </div>
+                                            </a>
+                                        </div>
+                                        {% elif forloop.counter == 2 %}                 
+                                        <div class="tip_content_1__sub2">
+                                            <a href="{{post.get_absolute_url}}">
+                                                <div class="tag_wrapper"> 
+                                                    <span class="tag">Q~Tips</span>
+                                                </div>
+                                                <div class="nav_image_t">
+                                                    <img src="https://res.cloudinary.com/hjsvnocvg/image/upload/w_80,h_70/v1/{{post.image.name}}" class="resize content__thumbnail nav_image__image" alt="article thumbnail">
+                                                </div>
+                                                <div class="title">{{post.title|safe}} | joint-access-programmer.com</div>
+                                                <div class="content__date">
+                                                    {{post.last_updated|date:"M d, Y"}}
+                                                </div>
+                                            </a>
+                                        </div>
+                                        {% else %}
+                                        <div class="tip_content_1__sub3">
+                                            <a href="{{post.get_absolute_url}}">
+                                                <div class="tag_wrapper"> 
+                                                    <span class="tag">Q~Tips</span>
+                                                </div>
+                                                <div class="nav_image_t">
+                                                    <img src="https://res.cloudinary.com/hjsvnocvg/image/upload/w_80,h_70/v1/{{post.image.name}}" class="resize content__thumbnail nav_image__image" alt="article thumbnail">
+                                                </div>
+                                                <div class="title">{{post.title|safe}} | joint-access-programmer.com</div>
+                                                <div class="content__date">
+                                                    {{post.last_updated|date:"M d, Y"}}
+                                                </div>
+                                            </a>
+                                        </div>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endif %} 
+                                    </div>
+                                    <div class="t_all">
+                                     <a href="{% url 'central:tips' %}#tips-showcase">
+                                        <span class="t_all__btn">
+                                            View more <i class="fas fa-chevron-down"></i>
+                                        </span>
+                                     </a>
+                                    </div>                                  
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav_items left-side"><a class="nav_youtube" rel="noreferrer" href="{% if newest_post %}{% for post in newest_post %} {{post.get_absolute_url}} {% endfor %} {% endif %}">Just In&nbsp;<i class="fa fa-link"></i> </a></li>
+                    <li class="nav_items left-side contact">
+                        <a href="{% url 'central:contact' %}">
+                            Contact
+                        </a>
+                    </li>
+                    <li class="nav_items left-side contact">
+                        <a href="{% url 'central:about' %}">
+                            About Us
+                        </a>
+                    </li>
+                    <li class="nav_items left-side mobile_search">
+                        <a href="{% url 'central:categories' %}">
+                           <span><i class="fas fa-search"></i></span>
+                        </a>
+                    </li>
+                    <li class="nav_items left-side desktop_search">
+                        <label for="nav_searcher" class="label_search">
+                            <span class="all_search">Search&nbsp;<i class="fas fa-search"></i></span>
+                        </label>
+                        <input type="checkbox" name="nav_searcher" id="nav_searcher" />         
+                    </li>
+                    <li class="nav_items login_btn__nav">
+                        {% if not user.is_authenticated %}
+                        <a href="{% url 'authorize:login' %}">Login</a>
+                        {% else %}
+                        <a href="{% url 'authorize:logout' %}">Logout</a>               
+                        {% endif %}
+                    </li>
+                    <li class="nav_items create_btn__nav">
+                        {% if user.is_authenticated %}
+                        <a class="create_flexer"><span class="checkmarker-top">★</span>&nbsp;Verified</a>       
+                        {% else %}
+                        <a href="{% url 'authorize:signup' %}">Create Account</a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="hamburger">
+            <div class="hidden_mobile__right">
+                <ul class="flex__nav_items">
+                    <li class="nav_items login_btn">
+                        {% if not user.is_authenticated %}
+                        <a href="{% url 'authorize:login' %}">Login</a>
+                        {% else %}
+                        <a href="{% url 'authorize:logout' %}">Logout</a>               
+                        {% endif %}
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav_items create_btn__user">                 
+                        <a class="create_flexer"><span class="checkmarker-top"><i class="fas fa-check-square"></i></span>&nbsp;Verified</a>             
+                    </li>
+                    {% else %}
+                    <li class="nav_items create_btn">   
+                        <a href="{% url 'authorize:signup' %}">Create Account</a>                       
+                    </li>   
+                    {% endif %}
+                </ul>
+            </div>  
+        </div>
+    </div>
+    {% block section_1 %}
+    <div class="section_one">
+        <div class="center_text">
+            <p class="center_text__top">
+                Let's Improve
+            </p>
+            <p class="center_text__middle">
+                Your Skills in Web Technologies
+            </p>
+            <div class="center_text__description">
+                Creating web interfaces, APIs, Backends, Algorithms, Scripts are insanely fun and satisfying, but can be difficult as well. Our main goal is to break down these heinous tasks simply plain.
+            </div>
+            <div class="create_button">
+                
+                    <div class="create_button__inner">
+                        {% if not user.is_authenticated %}
+                        <a href="{% url 'authorize:signup' %}">
+                        Create Account
+                        </a> 
+                        {% else %}
+                        <a href="{% url 'central:categories' %}">
+                        Check Category
+                        </a> 
+                        {% endif %}
+                    </div>
+
+                <a rel="noreferrer" href="https://www.patreon.com/jointaccessprogrammer" target="_blank"><div class="patreon">Become a Patreon</div></a>
+            </div>
+        </div>
+        <div class="desktop_image">
+            <picture>
+                <source type="image/webp"  srcset="{% static 'img/front_prototype.webp' %}"  class="prototype_face__resize visual" alt="JAP mobile prototype">
+                <img src="{% static 'img/front_prototype.png' %}"  class="prototype_face__resize visual" alt="JAP mobile prototype">
+            </picture>  
+        </div>
+    </div>
+    {% endblock section_1 %}
+    <div class="trending">
+        <div class="trending__left">
+             <span class="trending__social"><i class="fas fa-heart"></i></span><span class="trending__text">**Trending</span><span class="trending__article">
+                {% if posts_by_hits %}
+                {% for single_post in posts_by_hits %}
+                {% if forloop.first %}
+                <a  class="slide current" href="{{single_post.get_absolute_url}}">
+                    <span class="sml_size_tr">{{single_post.title|upper|truncatechars_html:38|safe}} [{{single_post.last_updated|date:"M d, Y"}}]</span>
+                    <span class="lg_size_tr">{{single_post.title|upper|truncatechars_html:60|safe}} [{{single_post.last_updated|date:"M d, Y"}}]</span>
+                </a>
+                {% elif forloop.counter != 1 %}
+                <a  class="slide" href="{{single_post.get_absolute_url}}">
+                     <span class="sml_size_tr">{{single_post.title|upper|truncatechars_html:38|safe}} [{{single_post.last_updated|date:"M d, Y"}}]</span>
+                     <span class="lg_size_tr">{{single_post.title|upper|truncatechars_html:60|safe}} [{{single_post.last_updated|date:"M d, Y"}}]</span>
+                </a>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+             </span>
+        </div>
+        <div class="trending__right">
+            <span class="trending__icon1"><i class="fas fa-chevron-left"></i></span><span class="trending__icon2"><i class="fas fa-chevron-right"></i></span>
+        </div>
+    </div>
+    {% block hr %}
+    <hr class="hr_for_index">
+    {% endblock hr %}
+    {% block section1_b %}
+    <div class="s_ctg">
+        <div class="main_header"> Select Category</div>
+        <div class="s_ctg__contents">
+            
+            <div class="card ui_card">
+                <a href="{% url 'central:user_interface' %}#ui-showcase">
+                <div class="header"><img src="{% static 'img/responsive.svg' %}" alt="responsive icon" class="s_ctg__icon_size"></div>
+                <p class="header">
+                    UI/UX
+                </p>
+                <div class="card__tag__center"><span class="card__tag">#ui/ux</span></div>
+
+                <p class="content">
+                    UI/UX brings boring codes to live, it comes first, a project with proper visualization is way respected compared to another with saggy visuals. We intend making you a UI Expert.
+                </p>
+                </a>
+            </div>
+            
+            <div class="card backend_card">
+                <a href="{% url 'central:backend' %}#backend-showcase">
+                <div class="header"><img src="{% static 'img/code.svg' %}" alt="responsive icon" class="s_ctg__icon_size"></div>
+                <p class="header">
+                    Backends (Python, Databases...)
+                </p>
+                <div class="card__tag__center"><span class="card__tag">#backend/web dev</span></div>
+                <p class="content">
+                    The userface is nothing without a clean and functional backend. The complexities and logic behind the scenes are wired with server-side programming languages like Python, NodeJS, ReactJS...
+                </p>
+                </a>
+            </div>
+            <div class="card algorithm_card">
+                <a href="{% url 'central:algorithm' %}#algorithm-showcase">
+                <div class="header"><img src="{% static 'img/algorithm.svg' %}" alt="responsive icon" class="s_ctg__icon_size" />
+                </div>
+                <p class="header">
+                    Algorithms
+                </p>
+                <div class="card__tag__center">
+                    <span class="card__tag">#algorithms, ml</span>
+                </div>
+                <p class="content">
+                    There has to be a way to get the job done, not just finding the way but also putting effectiveness and efficiency forward. Machine learning algorithms are best for stand-alone actions taken without explicitly instructing the computer to do so.
+                </p>
+                </a>
+            </div>
+        </div>
+        <div class="s_ctg__contents s_ctg__contents_s2">
+            <div class="card_big freebie_card">
+                <a href="{% url 'central:freebies' %}#free-projects-showcase">
+                <div class="header"><img src="{% static 'img/project.svg' %}" alt="responsive icon" class="s_ctg__icon_size"></div>
+                <p class="header">
+                    Free Projects (+ source code )
+                </p>
+                <div class="card__tag__center"><span class="card__tag">#freebies</span></div>
+                <p class="content">
+                    We offer majority of our projects for free with all source codes available on github for download. Specifically meant for non-patreons.
+                </p>
+                </a>
+            </div>
+            <div class="card_big premium_card">
+                <a href="{% url 'central:premium' %}#premium-projects-showcase">
+                <div class="header"><img src="{% static 'img/project_premium.svg' %}" alt="responsive icon" class="s_ctg__icon_size"></div>
+                <p class="header">
+                    Premium Projects (+ all materials)
+                </p>
+                <div class="card__tag__center"><span class="card__tag">#premium</span></div>
+                <p class="content">
+                    Premium projects consist of all project materials, source codes, prototypes. Cheapest hosting ideas and domain name purchases for our patreons who also get access to sensitive materials as well as 24/7 support from our dedicated team of software engineers.
+                </p>
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endblock section1_b %}
+
+    <div class="section_two">
+        {% block section2_a %}
+        <p class="first_text">
+            Full Blog Contents
+        </p>
+
+        <p class="second_text">
+            Our primal focus is to helping you expand your skills in web technologies, while also giving you tips and tricks on improving your designs as well. Drafting fully responsive UI/UX design and imbibing mobile-first approach as an added bonus, all for free.
+        </p>
+
+        <div class="prototype_face">
+            <picture>
+                <source type="image/webp"  srcset="{% static 'img/front_prototype.webp' %}">
+                <img src="{% static 'img/front_prototype.png' %}" class="prototype_face__resize visual prototype_face__resize_special" alt="JAP mobile prototype">
+            </picture>      
+            <div class="prototype_face__text">
+                <div class="mobile_icon_parent">
+                    <i class="fas fa-mobile mobile_icon"></i>
+                </div>
+                <div class="hr"></div>              
+                <div class="side_text">Powerful Articles on Mobile-First Technique</div>
+            </div>
+        </div>
+
+        <div class="algorithms">
+            <div class="algorithms_face__text">
+                <div class="push_algorithms">
+                    <div class="algorithms_icon_parent">
+                        <i class="fas fa-code algorithms_icon"></i>
+                    </div>
+                    <div class="algorithms__hr"></div>              
+                    <div class="algorithms__side_text">Build Powerful Algorithms</div>
+                </div>
+            </div>
+            <picture>
+                <source type="image/webp"  srcset="{% static 'img/algorithms.webp' %}">
+                <img src="{% static 'img/algorithms.png' %}" class="prototype_face__resize algorithms__image" alt="algorithm prototype on glass">
+            </picture>  
+        </div>
+        {% endblock section2_a %}
+        <div class="help_us">
+            <div class="main_header"> Let us help you!</div>
+            <div class="help_us__contents">
+                <div class="maillist_sub">
+                    <a href="#mailing_list">
+                    <p class="header">
+                        Subscribe to Out MailList
+                    </p>
+                    <p class="content">
+                        First things first, join our mailing list so as to get our updates as soon as they are uploaded either on Youtube or on this platform. 
+                    </p>
+                    </a>
+                </div>
+                <div class="youtube_sub">
+                    <p class="header">
+                        Always Check Back
+                    </p>
+                    <p class="content">
+                        We urge our users/members to always check back for new and updated contents twice or more every week, so you always stay
+                        abreast of new technologies and the neccesary improvemnets covered.
+                    </p>
+                </div>
+                <div class="patreon_sub">
+                    <a rel="noreferrer" href="https://www.patreon.com/jointaccessprogrammer" target="_blank">
+                        <p class="header">
+                            Become a Patreon
+                        </p>
+
+                        <p class="content">
+                            You can support our creative work by becoming our patreon, this should be at your freewill, we will never push you. Our patreons get access to sensitive materials as well as 24/7 support from our dedicated team of software engineers.
+                        </p>
+                   </a>
+                </div>
+            </div>
+
+        </div>
+        {% block section2_b %}
+        <div class="backend">
+            <picture>
+                <source  srcset="{% static 'img/backend.webp' %}" type="image/webp"  class="algorithm__resize" alt="backend prototype">
+                <img src="{% static 'img/backend.png' %}"  class="backend_image algorithm__resize" alt="backend prototype">
+            </picture>  
+        </div> 
+        {% endblock section2_b %}
+
+        <div class="mail_suscribe" id="mailing_list">
+            <p class="header update">
+                Never miss an update
+            </p>
+            <div class="mail_divider"></div>    
+            <div>
+                <form class="emaillist" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form_parent">
+                        <div class="email_label"><label for="id_email">&nbsp;<i class="fas fa-smile"></i>&nbsp;Enter email</label></div>
+                        <input class="mail_input" type="email" name="email" maxlength="60" required id="id_email">
+                        <button type="submit" class="submit_btn email_btn"> Join</button>
+                    </div>
+                </form>         
+            </div>
+        </div>
+
+
+        <div class="footer">
+            <div class="primary_footer">
+                <div class="primary_footer__heading">
+                    Recent Posts
+                </div>
+                {% if all_post_non_draft_t3 %}
+                {% for post in all_post_non_draft_t3 %}
+                <a href="{{post.get_absolute_url}}">
+                <div class="content">
+                    <div class="content__image">
+                        <img src="https://res.cloudinary.com/hjsvnocvg/image/upload/w_80,h_70/v1/{{post.image.name}}" class="resize content__thumbnail nav_image__image" alt="article thumbnail">
+                    </div>
+                    <div class="content__not_image">
+                        <div class="content__title">
+                            {{post.title|truncatewords:10|safe}} | joint-access-programmer.com
+                        </div>
+                        <div class="content__date">
+                            {{post.last_updated|date:"M d, Y"}}
+                        </div>
+                    </div>
+                </div>
+                </a>
+                {% endfor %}
+                {% endif %}
+            </div>
+
+            <div class="secondary_footer">
+                <div class="secondary_footer__heading">
+                    Trending Articles
+                </div>
+                {% if posts_by_hits %}
+                {% for post in posts_by_hits %}
+                <a href="{{post.get_absolute_url}}">
+                <div class="content">
+                    <div class="content__image">
+                        <img src="https://res.cloudinary.com/hjsvnocvg/image/upload/w_80,h_70/v1/{{post.image.name}}" class="resize content__thumbnail nav_image__image" alt="article thumbnail">
+                    </div>
+                    <div class="content__not_image">
+                        <div class="content__title">
+                            {{post.title|truncatewords:10|safe}} | joint-access-programmer.com
+                        </div>
+                        <div class="content__date">
+                            {{post.last_updated|date:"M d, Y"}}
+                        </div>
+                    </div>
+
+                </div>
+                </a>
+                {% endfor %}
+                {% endif %}
+            </div>
+
+
+            <div class="footer__category">
+                <div class="footer__category__heading">
+                    Categories
+                </div>    
+                <div class="content_category">
+                    <p class="category_type">
+                        UI/UX
+                    </p>
+                    <p class="category_count">
+                        ({{ui_category_count}})
+                    </p>
+                </div>
+
+                <div class="content_category">
+                    <p class="category_type">
+                        Web Backend
+                    </p>
+                    <p class="category_count">
+                        ({{backend_category_count}})
+                    </p>
+                </div>
+                <div class="content_category">
+                    <p class="category_type">
+                        Algorithms
+                    </p>
+                    <p class="category_count">
+                        ({{algorithm_category_count}})
+                    </p>
+                </div>
+
+                <div class="content_category">
+                    <p class="category_type">
+                        Free Projects
+                    </p>
+                    <p class="category_count">
+                        ({{freeproject_category_count}})
+                    </p>
+                </div>
+
+                <div class="content_category">
+                    <p class="category_type">
+                        Premium Materials
+                    </p>
+                    <p class="category_count">
+                        ({{premium_category_count}})
+                    </p>
+                </div>
+
+                <div class="content_category">
+                    <p class="category_type">
+                        Tips n Tricks
+                    </p>
+                    <p class="category_count">
+                        ({{tips_category_count}})
+                    </p>
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="middle__footer">
+            <div class="footer__logo__image">
+                <svg  version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                viewBox="0 0 32.8 28.6" style="enable-background:new 0 0 32.8 28.6;" xml:space="preserve">
+                <style type="text/css">
+                    .st0{fill:#fff;}
+                    .st1{fill:#121321;}
+                    .st2{fill:#EFD6AC;}
+                    .st3{opacity:0.9;}
+                    .st4{opacity:0.46;fill:#fff;}
+                    .st5{fill:none;}
+                    .st6{opacity:0.56;fill:#fff;}
+                </style>
+                <g class="st3">
+                    <path class="st0" d="M8.2,14.8l-1.3,4c-0.1,0.4-0.6,0.7-1,0.7h0c-0.7,0-1.3-0.7-1-1.4L10,2.9c0.2-0.4,0.6-0.7,1-0.7h1.1
+                    c0.5,0,0.9,0.3,1,0.7l5.2,15.1c0.2,0.7-0.3,1.4-1,1.4h-0.1c-0.5,0-0.9-0.3-1-0.7l-1.3-4c-0.2-0.4-0.6-0.7-1-0.7H9.2
+                    C8.8,14,8.4,14.4,8.2,14.8z M12.6,12.3c0.7,0,1.3-0.7,1-1.4l-1.2-3.5c-0.4-1.1-0.6-2.2-0.9-3.2h-0.1c-0.3,1-0.5,2.1-0.9,3.1
+                    l-1.2,3.6c-0.2,0.7,0.3,1.4,1,1.4H12.6z"/>
+                    <path class="st0" d="M21.4,3.3c0-0.6,0.4-1,1-1.1c0.9-0.1,2-0.2,3.3-0.2c2.2,0,3.8,0.5,4.9,1.4c1,0.8,1.5,2.1,1.5,3.6
+                    c0,1.6-0.5,2.8-1.3,3.7c-1.2,1.3-3.1,1.9-5.3,1.9c-0.2,0-0.5,0-0.7,0c-0.6,0-1.1,0.5-1.1,1.1v4.6c0,0.6-0.5,1.1-1.1,1.1h-0.1
+                    c-0.6,0-1.1-0.5-1.1-1.1V3.3z M23.6,9.8c0,0.6,0.4,1,1,1.1c0.3,0,0.6,0,0.9,0c2.7,0,4.3-1.3,4.3-3.7c0-2.3-1.6-3.4-4.1-3.4
+                    c-0.4,0-0.8,0-1.1,0c-0.6,0-1,0.5-1,1.1V9.8z"/>
+                </g>
+                <polyline class="st4" points="4.8,21.9 0.8,27.2 4.8,27.2 8.7,21.9 8.7,27.2 12.7,21.9 12.7,20.5 4.8,20.5 "/>
+                <polyline class="st4" points="17.2,25.8 13.2,20.5 17.2,20.5 21.2,25.8 21.2,20.5 25.1,20.5 25.1,25.8 25.1,27.2 17.2,27.2 "/>
+                <line class="st5" x1="1.7" y1="-8171.4" x2="1.7" y2="8211.6"/>
+                <circle class="st6" cx="6.3" cy="2.3" r="1.7"/>
+            </svg>
+        </div>
+        <div class="footer_rule"></div>
+        <div class="footer__about">
+            Joint-access-programmer is designed following the W3C's guildlines. It is a recent online platform for developers and going source for technical and digital content for its influential audience around the globe. You can reach us via email.
+            <p class="footer__contact">
+                <i class="fas fa-envelope-open-text"></i> <a href="/contact/"> Contact Us</a>
+            </p>
+        </div>
+       
+        <div class="footer__social">
+            <i class="fas fa-heart"></i>
+        </div>
+     
+    </div>
+
+    <div class="footer__base">
+        <div class="footer__creator">
+            Made with due deligence & <i class="fas fa-heart"></i> by <span class="owner_link">Pius Lucky</span>
+        </div>
+        <div class="all_footer_links">
+            <a href="/sitemap.xml" target="_blank"> <p class="single_links">Site Map</p></a>
+            <a href="{% url 'central:privacy_policy' %}" target="_blank"> <p class="single_links">Privacy</p></a>
+            <a href="{% url 'central:terms_of_service' %}" target="_blank"> <p class="single_links">Terms of Service</p></a>
+            <a href="{% url 'central:cookies_policy' %}" target="_blank"> <p class="single_links">Cookies Policy</p></a>
+            <a href="{% url 'central:contact' %}" target="_blank"> <p class="single_links">Contact Us</p></a>
+        </div>
+    </div>
+</div>
+{% include 'attachments/index.html' %}
+{% block script %}
+{% endblock script %}
+</div>
+</body>
+</html>

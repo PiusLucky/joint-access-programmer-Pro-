@@ -1,0 +1,23 @@
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#2F195F;}
+	.st1{opacity:0.93;fill:#2F195F;}
+	.st2{fill:#B4D2D7;}
+	.st3{fill:#E1EBF0;}
+	.st4{fill:#FF4A4A;}
+	.st5{fill:#FFD422;}
+	.st6{fill:#00CC76;}
+	.st7{fill:#FFF5F5;}
+	.st8{fill:#EFE2DD;}
+</style>
+<path class="st0" d="M256,480.2h256V159.6l-276-20L256,480.2z"/>
+<path class="st1" d="M0,159.6v320.6h256V139.6L0,159.6z"/>
+<path class="st2" d="M256,32l-20,63.8l20,63.8h256V32H256z"/>
+<path class="st3" d="M0,32h256v127.6H0V32z"/>
+<path class="st4" d="M47.8,80.8h31.9v30H47.8V80.8z"/>
+<path class="st5" d="M111.6,80.8h31.9v30h-31.9V80.8z"/>
+<path class="st6" d="M175.4,80.8h31.9v30h-31.9V80.8z"/>
+<path class="st7" d="M184.1,414.6l-74.5-94.7l74.5-94.7l23.6,18.6l-59.9,76.1l59.9,76.1L184.1,414.6z"/>
+<path class="st8" d="M327.9,414.6L304.3,396l59.9-76.1l-59.9-76.1l23.6-18.6l74.5,94.7L327.9,414.6z"/>
+<path class="st7" d="M241,224.2h30v191.3h-30V224.2z"/>
+</svg>

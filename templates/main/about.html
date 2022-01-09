@@ -1,0 +1,58 @@
+{% extends "index.html" %}
+{% load static %}
+{% block title %}
+<title>{{title}}: joint-access-programmer.com</title>
+{% endblock title %}
+{% block section_1 %}
+<div class="detail_section_desk auth_section">
+    <div class="center_text cat_desktop">
+        <p class="center_text__top center_text__top__cat_text">
+            About Me
+        </p>
+        <p class="center_text__middle center_text__middle__desk m_t">
+            Who am I?
+        </p>
+        <div class="center_text__description desc">
+            See details about me below
+        </div>
+        <div class="search_form search_form_desk">
+            <form  method="GET" action="/search/">
+                <div>
+                    <input type="text" name="query" aria-label="..." required="" autofocus="" placeholder="Search for any article..." class="form-control"> 
+                </div> 
+                <button class="search_btn_icon" type="submit" aria-label="Search"><i class="fa fa-search"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock section_1 %}
+
+{% block section1_b %}
+<div class="signup_form">
+    <div class="form_header"><span class="create_account">- About Me - </span></div>
+    <div class="form_ads">
+        <div class="main_form content_adjust">
+        <p>My name is <span class="about-name">Pius Lucky</span>, I'm a software developer and researcher based in Nigeria (Benin-City). I build apps in Python(Django), Nodejs, React and other technologies.</p>
+        <br>
+        <p>I created this blog to share some of my insights and experience about web technologies and programming in general while adhering to some stiff principles of Clean code conventions,  Unit-testing, Modularization etc. I simply want to transform you into a professional in the field of web development.</p>
+        <br>
+        <p>
+        The blog is called joint-access-programmer denoting a person that has an expert idea&nbsp;(access) about majority&nbsp;(joint) of relevant technologies&nbsp;(programs). We aim to achieve that here. 
+        </p>
+        </div>
+        <div class="ads">
+            <p class="advrts_header">Check Out!</p>
+            <p></p>
+        </div>
+    </div>
+    
+</div>
+
+{% endblock section1_b %}
+
+{% block section2_a %}
+{% endblock section2_a %}
+
+{% block section2_b %}
+{% endblock section2_b %}

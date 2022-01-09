@@ -1,0 +1,147 @@
+{% extends "index.html" %}
+{% load static %}
+{% block head %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    {% block title %}
+    <title>{{title}}-{{myquery_caps}}: Taking Your Coding Career To The Next Level!</title>
+    {% endblock title %}
+    <!-- Adding open graph -->
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Joint-access-programmer.com, simply created for developers." />
+    <meta property="og:description" content="web search for {{query}} | joint-access-programmer.com" />
+    <meta property="og:url" content="{{ canonical_path }}" />
+    <meta property="og:site_name" content="Joint Access Programmer" />
+    <meta name="twitter:card" content="summary" />
+      <!-- // Adding open graph -->
+    <link rel="manifest" href="/static/manifest.json">
+    <meta name="theme-color" content="#2f195f">
+    <meta name="msvalidate.01" content="FF4A9A651AC4C69EA5C0444405C51FD3" />
+    <link rel="apple-touch-icon" href="{% static 'img/jap_logo.svg' %}"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta name="description"  content="Joint-access-programmer is an online platform that provides developers and developers-alike solutions to problems in web technologies. Creating web interfaces, APIs, Backends, Algorithms, Scripts are insanely fun and satisfying, but can be difficult as well. Our main goal is to break down these heinous tasks simply plain." />
+    <link rel="canonical" href="{{ canonical_path }}" />
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static  'img/favicon_pack/logo_180x180.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static  'img/favicon_pack/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static  'img/favicon_pack/favicon-16x16.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'dependencies/css/all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'dependencies/css/sunburst.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+    <script data-ad-client="ca-pub-8540441848048347" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+{% endblock head %}
+
+{% block section_1 %}
+<div class="detail_section_desk auth_section">
+    <div class="center_text cat_desktop">
+        <p class="center_text__top center_text__top__cat_text">
+            Search Result(s)
+        </p>
+        <p class="center_text__middle center_text__middle__desk m_t">
+            View all articles under search keyword
+        </p>
+        <div class="center_text__description desc">
+            Articles are listed in the order of relevance and you can choose
+            any that exactly matches your query.
+        </div>
+        <div class="search_form search_form_desk">
+            <form  method="GET" action="/search/">
+                <div>
+                    <input type="text" name="query" aria-label="..." required="" autofocus="" placeholder="Search for any article..." class="form-control"> 
+                </div> 
+                <button class="search_btn_icon" type="submit" aria-label="Search"><i class="fa fa-search"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock section_1 %}
+{% block hr %}
+<hr class="hr_for_category">
+{% endblock hr %}
+{% block section1_b %}
+    <div class="toggle_ctg">
+        <div class="toggle_search__sub ui_target">
+            <div class="toggle_ctg__sub__title">
+                Search results for <span class="search_keyword">{{ query }}...</span><span class="strip_underline">[{{ number_of_posts }}]</span>
+            </div>
+            <div class="toggle_ctg__sub__icon">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+        <div class="spacer"></div>
+        <div class="search_content search_content__m">
+        {% if number_of_posts == 0 %}
+        <div class="no_search_post"><span class="fas fa-times-circle"></span>&nbsp;No Post matched your search query. Try using a different keyword...</div>            
+        {% else %}
+        {% for post in post_query %}
+        <div class="toggle_ctg__sub__content">
+            <div class="toggle_ctg__others">            
+                <p><span class="star-icon">🌟</span>&nbsp;{{post.title|upper}}</p>         
+                <div class="toggle_ctg__others__middle">
+                    <p>Read Time -
+                     {% if post.read_time == 1 %}
+                     {{post.read_time}} min
+                     {% else %}
+                     {{post.read_time}} mins
+                     {% endif %}
+                    </p>
+                    <p>Last Updated ({{post.last_updated|date:"M d, Y"}})</p>
+                    <p>Category ({{post.category|capfirst}})</p>
+                </div>
+                
+                <div class="toggle_ctg__others__descr">
+                    {{post.content|truncatewords_html:100|safe}}
+                    <div class="v_m_btn_div">
+                        <a href="{{post.get_absolute_url}}">
+                            <button class="v_m_btn">✔ View full article</button>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>  
+        {% endfor %}
+        <div class="pagination">
+            {% if post_query.has_previous %}
+            <a href="?page={{ post_query.previous_page_number }}&query={{ query }}"><i class="fas fa-arrow-alt-circle-left"></i></a>
+            {% else %}
+            <a class="last_disabled"><i class="fas fa-arrow-alt-circle-left"></i></a>
+            {% endif %}
+            {% for i in post_query.paginator.page_range %}
+            {% if post_query.number == i %}
+            <a class="active_pg"><span>{{i}}</span></a>
+            {% else %}
+            <a href="?page={{i}}&query={{ query }}"><span class="shift_pagination">{{ i }}</span></a>
+            {% endif %}
+            {% endfor %}
+            {% if post_query.has_next %}
+            <a href="?page={{ post_query.next_page_number }}&query={{ query }}"><i class="fas fa-arrow-alt-circle-right"></i></a>
+            {% else %}
+            <a class="last_disabled"><span><i class="fas fa-arrow-alt-circle-right"></i></span></a>
+            {% endif %}
+        </div>
+        {% endif %}
+
+         </div>
+  
+    </div>
+
+{% endblock section1_b %}
+
+{% block section2_a %}
+{% endblock section2_a %}
+
+{% block section2_b %}
+{% endblock section2_b %}
+
+{% block script %}
+<script>
+script("{% static 'js/project_scripts/main.js' %}");
+script("{% static 'dependencies/js/run_prettify.js' %}");
+</script>
+{% endblock %}

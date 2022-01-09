@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+    <head>
+        <!--[if gte mso 9]>
+            <xml>
+                <o:OfficeDocumentSettings>
+                    <o:AllowPNG />
+                    <o:PixelsPerInch>96</o:PixelsPerInch>
+                </o:OfficeDocumentSettings>
+            </xml>
+        <![endif]-->
+        <title>Email Authentication | joint-access-programmer.com</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0 " />
+        <meta name="format-detection" content="telephone=no" />
+        <!--[if !mso]><!-->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet" />
+        <!--<![endif]-->
+        <style type="text/css">
+            td.em_padd{
+                background: #0f1020;
+                opacity: .9;
+            }
+            body {
+                margin: 0 !important;
+                padding: 0 !important;
+                -webkit-text-size-adjust: 100% !important;
+                -ms-text-size-adjust: 100% !important;
+                -webkit-font-smoothing: antialiased !important;
+            }
+            img {
+                border: 0 !important;
+                outline: none !important;
+            }
+            p {
+                margin: 0px !important;
+                padding: 0px !important;
+            }
+            table {
+                border-collapse: collapse;
+                mso-table-lspace: 0;
+                mso-table-rspace: 0;
+            }
+            td,
+            a,
+            span {
+                border-collapse: collapse;
+                mso-line-height-rule: exactly;
+            }
+            .ExternalClass * {
+                line-height: 100%;
+            }
+            .em_defaultlink a {
+                color: inherit !important;
+                text-decoration: none !important;
+            }
+            span.MsoHyperlink {
+                mso-style-priority: 99;
+                color: inherit;
+            }
+            span.MsoHyperlinkFollowed {
+                mso-style-priority: 99;
+                color: inherit;
+            }
+            @media only screen and (min-width: 481px) and (max-width: 699px) {
+                .em_main_table {
+                    width: 100% !important;
+                }
+                .em_wrapper {
+                    width: 100% !important;
+                }
+                .em_hide {
+                    display: none !important;
+                }
+                .em_img {
+                    width: 100% !important;
+                    height: auto !important;
+                }
+                .em_h20 {
+                    height: 20px !important;
+                }
+                .em_padd {
+                    padding: 20px 10px !important;
+                }
+            }
+            @media screen and (max-width: 480px) {
+                .em_main_table {
+                    width: 100% !important;
+                }
+                .em_wrapper {
+                    width: 100% !important;
+                }
+                .em_hide {
+                    display: none !important;
+                }
+                .em_img {
+                    width: 100% !important;
+                    height: auto !important;
+                }
+                .em_h20 {
+                    height: 20px !important;
+                }
+                .em_padd {
+                    padding: 20px 10px !important;
+                }
+                .em_text1 {
+                    font-size: 16px !important;
+                    line-height: 24px !important;
+                }
+                u + .em_body .em_full_wrap {
+                    width: 100% !important;
+                    width: 100vw !important;
+                }
+            }
+            .button {
+                background-color: #004a7f;
+                -webkit-border-radius: 10px;
+                border-radius: 10px;
+                border: none;
+                color: #fff;
+                cursor: pointer;
+                display: inline-block;
+                font-family: Arial;
+                font-size: 20px;
+                padding: 5px 10px;
+                text-align: center;
+                text-decoration: none;
+                -webkit-animation: glowing 1500ms infinite;
+                -moz-animation: glowing 1500ms infinite;
+                -o-animation: glowing 1500ms infinite;
+                animation: glowing 1500ms infinite;
+            }
+            @-webkit-keyframes glowing {
+                0% {
+                    background-color: #b20000;
+                    -webkit-box-shadow: 0 0 3px #b20000;
+                }
+                50% {
+                    background-color: red;
+                    -webkit-box-shadow: 0 0 40px red;
+                }
+                100% {
+                    background-color: #b20000;
+                    -webkit-box-shadow: 0 0 3px #b20000;
+                }
+            }
+            @-moz-keyframes glowing {
+                0% {
+                    background-color: #b20000;
+                    -moz-box-shadow: 0 0 3px #b20000;
+                }
+                50% {
+                    background-color: red;
+                    -moz-box-shadow: 0 0 40px red;
+                }
+                100% {
+                    background-color: #b20000;
+                    -moz-box-shadow: 0 0 3px #b20000;
+                }
+            }
+            @-o-keyframes glowing {
+                0% {
+                    background-color: #b20000;
+                    box-shadow: 0 0 3px #b20000;
+                }
+                50% {
+                    background-color: red;
+                    box-shadow: 0 0 40px red;
+                }
+                100% {
+                    background-color: #b20000;
+                    box-shadow: 0 0 3px #b20000;
+                }
+            }
+            @keyframes glowing {
+                0% {
+                    background-color: #b20000;
+                    box-shadow: 0 0 3px #b20000;
+                }
+                50% {
+                    background-color: red;
+                    box-shadow: 0 0 40px red;
+                }
+                100% {
+                    background-color: #b20000;
+                    box-shadow: 0 0 3px #b20000;
+                }
+            }
+        </style>
+    </head>
+
+    <body class="em_body" style="margin: 0px; padding: 0px;" bgcolor="#2f195f">
+        <table class="em_full_wrap" valign="top" width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#efefef" align="center">
+            <tbody>
+                <tr>
+                    <td valign="top" align="center">
+                        <table class="em_main_table" style="width: 700px;" width="700" cellspacing="0" cellpadding="0" border="0" align="center">
+                            <!--Header section-->
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 15px;" class="em_padd" valign="top" bgcolor="#f6f7f8" align="center">
+                                        <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="font-family: 'Open Sans', Arial, sans-serif; font-size: 12px; line-height: 15px; color: #fff;" valign="top" align="center">
+                                                       <span style="font-size: 18px;"> ⚡</span> Joint-access-programmer | <a href="https:/www.joint-access-programmer.com" target="_blank" style="color:#fbeb59; text-decoration: underline;">View Online</a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <!--//Header section-->
+                                <!--Banner section-->
+                                <tr>
+                                    <td valign="top" align="center">
+                                        <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
+                                            <tbody>
+                                                <tr>
+                                                    <td valign="top" align="center">
+                                                        <img
+                                                            class="em_img"
+                                                            alt="Joint-access-programmer.com Placeholder"
+                                                            style="display: block; font-family: Arial, sans-serif; font-size: 30px; line-height: 34px; color: #000000; max-width: 700px;"
+                                                            src="https://camo.githubusercontent.com/6bc6da44b0ff23c2975e9973ef0fa019764e37f9/68747470733a2f2f7a2d696d6167652d736c696465722e6e65746c6966792e6170702f7374617469632f696d616765732f706173745f6f662e6a7067"
+                                                            width="700"
+                                                            border="0"
+                                                            height="345"
+                                                        />
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <!--//Banner section-->
+                                <tr>
+                                    <td valign="top" align="center">
+                                        <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
+                                            <tbody>
+                                                <tr>
+                                                    <td valign="top" align="center" style="padding: .5rem 0rem;
+                                                    background: #fbeb59;
+                                                    background: #fbeb59;  /* fallback for old browsers */
+                                                    background: -webkit-linear-gradient(to left, #2f195f, #fbeb59);  /* Chrome 10-25, Safari 5.1-6 */
+                                                    background: linear-gradient(to left, #2f195f, #fbeb59); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+                                                    font-size: 12px;
+                                                    font-weight: bold;text-transform: uppercase;opacity: .9;">
+                                                        Get Ready!
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <!--Content Text Section-->
+                                <tr>
+                                    <td style="padding:1rem 2rem!important;" class="em_padd" valign="top" bgcolor="#0d1121" align="center">
+                                        <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="font-family: 'Open Sans', Arial, sans-serif; font-size: 16px; line-height: 30px; color: #ffffff;" valign="top" align="left">
+                                                        <h5>
+                                                            Hi{% if user_name %}{% for name in user_name %}<span style="color: #fbeb59; font-family: italic;">&nbsp;{{name}}</span>,{% endfor %}{% endif %}&nbsp;Welcome to
+                                                            <b>Joint-access-programmer.com</b>. You’re on your way to starting out on a defensive programming career!
+                                                        </h5>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-size: 0px; line-height: 0px; height: 0px;" height="0">&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-family: 'Open Sans', Arial, sans-serif; font-size: 15px; line-height: 22px; color: #fbeb59; letter-spacing: 2px; padding-bottom: 6px;" valign="top" align="left">
+                                                        <div style="margin-top: -1.5rem;"><h5>An exciting future of technical-knowledge awaits you at Joint-access-programmer.com.</h5>
+                                                        </div>
+                                                        <div style="font-size: 16; color: #ffffff; font-size: 10px; text-align: left!important; text-align: justify;">
+                                                            <b>Joint-access-programmer.com</b> provides articles that cut across the frontiers of different categories. we know that creating web interfaces, APIs, Backends, Algorithms,
+                                                            Scripts are insanely fun and satisfying, but can be difficult as well. Our main goal is to break down these heinous tasks simply plain.
+                                                        </div>
+                                                        <br />
+                                                        <br />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="em_h20" style="font-size: 0px; line-height: 0px; height: 25px;" height="25">&nbsp;</td>
+                                                    <!--—this is space of 25px to separate two paragraphs ---->
+                                                </tr>
+                                                <tr>
+                                                    <td
+                                                        style="
+                                                            font-family: 'Open Sans', Arial, sans-serif;
+                                                            font-size: 18px;
+                                                            line-height: 22px;
+                                                            color: #fbeb59;
+                                                            text-transform: uppercase;
+                                                            letter-spacing: 2px;
+                                                            padding-bottom: 12px;
+                                                            font-size: 10px;
+                                                            text-align: justify;"
+                                                        valign="top"
+                                                        align="center">
+                                                        <div style="margin-top: -3rem!important;"><span style="color:#fbeb59!important">Our number one tip to get the most from <b>Joint-access-programmer.com</b> is to subscribe to our newsletter after validating your activation link by clicking below:</span>
+
+                                                        </div><br />
+                                                        <br />
+                                                        <div align="middle" style="margin-bottom: 1.2rem;">
+                                                            <a class="button" href="https://www.joint-access-programmer.com/auth/verification/?id={{user_id}}"><button type="submit" class="button">Verify Now!</button></a>
+                                                        </div>
+                                                        <br />
+                                                        <p style="color:#fbeb59!important">if the verify button doesn't work. Just copy and paste below link in your browser</p>
+                                                        <div style="
+                                                            margin: 1rem 0;
+                                                            text-transform: lowercase;
+                                                            background: whitesmoke;
+                                                            color: #000;
+                                                            padding: .5rem 1rem; 
+                                                            border: 2px dotted #2f195f;
+                                                            border-radius: 1rem;">https://www.joint-access-programmer.com/auth/verification/?id={{user_id}}
+                                                        </div>
+                                                        <p>OR</p>
+                                                        <a href="https://www.joint-access-programmer.com/auth/verification/?id={{user_id}}">Click Here!</a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+
+                                <!--//Content Text Section-->
+                                <!--Footer Section-->
+                                <tr>
+                                    <td style="padding: 38px 30px;" class="em_padd" valign="top" bgcolor="#f6f7f8" align="center">
+                                        <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="font-family: 'Open Sans', Arial, sans-serif; font-size: 11px; line-height: 18px; color: #999999;" valign="top" align="center">
+                                                        <a href="https://www.joint-access-programmer.com/privacy-policy/" target="_blank" style="color: #999999; text-decoration: underline;">PRIVACY STATEMENT</a> |
+                                                        <a href="https://www.joint-access-programmer.com/terms-of-service/" target="_blank" style="color: #999999; text-decoration: underline;">TERMS OF SERVICE</a> |
+                                                        <a href="#" target="_blank" style="color: #999999; text-decoration: underline;">RETURNS</a><br />
+                                                        © 2020 Joint-access-programmer.com. All Rights Reserved.<br />
+                                                        <img src="https://images.dmca.com/Badges/dmca-badge-w150-5x1-07.png?ID=ccf140a5-97b8-48ee-a01c-14c98d279282" alt="DMCA.com Protection Status" />
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="em_hide" style="line-height: 1px; min-width: 700px; background-color: #ffffff;">
+                                        <img alt="" src="images/spacer.gif" style="max-height: 1px; min-height: 1px; display: block; width: 700px; min-width: 700px;" width="700" border="0" height="1" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="em_hide" style="white-space: nowrap; display: none; font-size: 0px; line-height: 0px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
+    </body>
+</html>

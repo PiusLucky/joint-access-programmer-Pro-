@@ -1,0 +1,437 @@
+{% extends "index.html" %}
+{% load static %}
+{% block section_1 %}
+<div class="detail_section detail_section_desk">
+    <div class="center_text cat_desktop">
+        <p class="center_text__top center_text__top__cat_text">
+            Backend
+        </p>
+        <p class="center_text__middle center_text__middle__desk ie_m_t">
+            View all articles under Backend
+        </p>
+        <div class="center_text__description">
+            Backend category has the total of <span class="critical">{{backend_category_count}} critical</span> articles.
+        </div>
+        <div class="search_form search_form_desk show_ie">
+            <form  method="GET" action="/search/">
+                <div>
+                    <input type="text" name="query" aria-label="..." required="" autofocus="" placeholder="Search for any article..." class="form-control"> 
+                </div> 
+                <button class="search_btn_icon" type="submit" aria-label="Search"><i class="fa fa-search"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock section_1 %}
+
+{% block section1_b %}
+<div class="toggle_ctg" id="backend-showcase">
+    <input type="checkbox" name="bke_target" id="input_bke_cat">
+    <label for="input_bke_cat" class="label_bke_target">
+        <div class="toggle_ctg__sub bke_target">
+            <div class="toggle_ctg__sub__title">
+                <i class="fas fa-globe"></i> Backend/ Server-side
+            </div>
+            <div class="toggle_ctg__sub__icon">
+                <i class="fas fa-chevron-down"></i>     
+            </div>      
+        </div>
+    </label>
+    <div class="spacer"></div>
+    <div class="all_bke_content">
+    {% if backend_category_post_query %}
+    {% for each_post in backend_category_post_query %}
+    <div class="toggle_ctg__sub__content">
+        <div class="toggle_ctg__others">            
+            <p><span class="star-icon">🌟</span>&nbsp;{{each_post.title|upper}}</p>            
+            <div class="toggle_ctg__others__middle">
+                <p>Read Time -
+                 {% if each_post.read_time == 1 %}
+                 {{each_post.read_time}} min
+                 {% else %}
+                 {{each_post.read_time}} mins
+                 {% endif %}
+                </p>
+                <p>Last Updated ({{each_post.last_updated|date:"M d, Y"}})</p>
+            </div>
+            
+            <div class="toggle_ctg__others__descr">
+                {{each_post.content|truncatewords_html:100|safe}}
+                <div class="v_m_btn_div">
+                    <a href="{{each_post.get_absolute_url}}">
+                        <button class="v_m_btn">✔ View full article</button>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>  
+    {% endfor %}
+    <div class="pagination">
+        {% if backend_category_post_query.has_previous %}
+        <a href="{% url 'central:backend' %}?bke_page={{ backend_category_post_query.previous_page_number }}"><i class="fas fa-arrow-alt-circle-left"></i></a>
+        {% else %}
+        <a class="last_disabled"><i class="fas fa-arrow-alt-circle-left"></i></a>
+        {% endif %}
+        {% for i in backend_category_post_query.paginator.page_range %}
+        {% if backend_category_post_query.number == i %}
+        <a class="active_pg"><span>{{i}} </span></a>
+        {% else %}
+        <a href="{% url 'central:backend' %}?bke_page={{i}}"><span class="shift_pagination">{{ i }}</span></a>
+        {% endif %}
+        {% endfor %}
+        {% if backend_category_post_query.has_next %}
+        <a href="{% url 'central:backend' %}?bke_page={{ backend_category_post_query.next_page_number }}"><i class="fas fa-arrow-alt-circle-right"></i></a>
+        {% else %}
+        <a class="last_disabled"><span><i class="fas fa-arrow-alt-circle-right"></i></span></a>
+        {% endif %}
+    </div>
+    {% endif %}
+    </div>
+
+
+    <input type="checkbox" name="ui_target" id="input_ui_cat">
+    <label for="input_ui_cat" class="label_ui_target">
+        <div class="toggle_ctg__sub ui_target">
+            <div class="toggle_ctg__sub__title" >
+                <i class="fas fa-mobile-alt"></i> User interface/ UX
+            </div>
+            <div class="toggle_ctg__sub__icon">
+                <i class="fas fa-chevron-down"></i>     
+            </div>
+        </div>
+    </label>
+    <div class="spacer"></div>
+    <div class="all_ui_content">
+        {% if ui_category_post_query %}
+        {% for each_post in ui_category_post_query %}
+        <div class="toggle_ctg__sub__content">
+            <div class="toggle_ctg__others">            
+                <p><span class="star-icon">🌟</span>&nbsp;{{each_post.title|upper}}</p>    
+                <div class="toggle_ctg__others__middle">
+                    <p>Read Time -
+                     {% if each_post.read_time == 1 %}
+                     {{each_post.read_time}} min
+                     {% else %}
+                     {{each_post.read_time}} mins
+                     {% endif %}
+                    </p>
+                    <p>Last Updated ({{each_post.last_updated|date:"M d, Y"}})</p>
+                </div>
+                
+                <div class="toggle_ctg__others__descr">
+                    {{each_post.content|truncatewords_html:100|safe}}
+                    <div class="v_m_btn_div">
+                        <a href="{{each_post.get_absolute_url}}">
+                            <button class="v_m_btn">✔ View full article</button>
+                        </a>
+                    </div>
+                </div>              
+            </div>
+        </div>  
+        {% endfor %}
+        <div class="pagination">
+            {% if ui_category_post_query.has_previous %}
+            <a href="{% url 'central:user_interface' %}?ui_page={{ ui_category_post_query.previous_page_number }}"><i class="fas fa-arrow-alt-circle-left"></i></a>
+            {% else %}
+            <a class="last_disabled"><i class="fas fa-arrow-alt-circle-left"></i></a>
+            {% endif %}
+            {% for i in ui_category_post_query.paginator.page_range %}
+            {% if ui_category_post_query.number == i %}
+            <a class="active_pg"><span>{{i}} </span></a>
+            {% else %}
+            <a href="{% url 'central:user_interface' %}?ui_page={{i}}"><span class="shift_pagination">{{ i }}</span></a>
+            {% endif %}
+            {% endfor %}
+            {% if ui_category_post_query.has_next %}
+            <a href="{% url 'central:user_interface' %}?ui_page={{ ui_category_post_query.next_page_number }}"><i class="fas fa-arrow-alt-circle-right"></i></a>
+            {% else %}
+            <a class="last_disabled"><span><i class="fas fa-arrow-alt-circle-right"></i></span></a>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+    
+    <input type="checkbox" name="algo_target" id="input_algo_cat">
+    <label for="input_algo_cat" class="label_algo_target">
+        <div class="toggle_ctg__sub algo_target">
+            <div class="toggle_ctg__sub__title">
+                <i class="fas fa-map"></i> Algorithms ML
+            </div>
+            <div class="toggle_ctg__sub__icon">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            
+        </div>
+    </label>
+    <div class="spacer"></div>
+    <div class="all_algo_content">
+    {% if algorithm_category_post_query %}
+    {% for each_post in algorithm_category_post_query %}
+    <div class="toggle_ctg__sub__content">
+        <div class="toggle_ctg__others">            
+            <p><span class="star-icon">🌟</span>&nbsp;{{each_post.title|upper}}</p>            
+            <div class="toggle_ctg__others__middle">
+                <p>Read Time -
+                 {% if each_post.read_time == 1 %}
+                 {{each_post.read_time}} min
+                 {% else %}
+                 {{each_post.read_time}} mins
+                 {% endif %}
+                </p>
+                <p>Last Updated ({{each_post.last_updated|date:"M d, Y"}})</p>
+            </div>
+            
+            <div class="toggle_ctg__others__descr">
+                {{each_post.content|truncatewords_html:100|safe}}
+                <div class="v_m_btn_div">
+                    <a href="{{each_post.get_absolute_url}}">
+                        <button class="v_m_btn">✔ View full article</button>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>  
+    {% endfor %}
+    <div class="pagination">
+        {% if algorithm_category_post_query.has_previous %}
+        <a href="{% url 'central:algorithm' %}?algo_page={{ algorithm_category_post_query.previous_page_number }}"><i class="fas fa-arrow-alt-circle-left"></i></a>
+        {% else %}
+        <a class="last_disabled"><i class="fas fa-arrow-alt-circle-left"></i></a>
+        {% endif %}
+        {% for i in algorithm_category_post_query.paginator.page_range %}
+        {% if algorithm_category_post_query.number == i %}
+        <a class="active_pg"><span>{{i}} </span></a>
+        {% else %}
+        <a href="{% url 'central:algorithm' %}?algo_page={{i}}"><span class="shift_pagination">{{ i }}</span></a>
+        {% endif %}
+        {% endfor %}
+        {% if algorithm_category_post_query.has_next %}
+        <a href="{% url 'central:algorithm' %}?algo_page={{ algorithm_category_post_query.next_page_number }}"><i class="fas fa-arrow-alt-circle-right"></i></a>
+        {% else %}
+        <a class="last_disabled"><span><i class="fas fa-arrow-alt-circle-right"></i></span></a>
+        {% endif %}
+    </div>
+    {% endif %}
+    </div>
+    <input type="checkbox" name="free_target" id="input_free_cat">
+    <label for="input_free_cat" class="label_free_target">
+        <div class="toggle_ctg__sub free_target">
+            <div class="toggle_ctg__sub__title">
+                <i class="fas fa-rocket"></i> Free Full Projects (~source code)
+            </div>
+            <div class="toggle_ctg__sub__icon">
+                <i class="fas fa-chevron-down"></i>
+            </div>  
+        </div>
+    </label>
+    <div class="spacer"></div>
+    <div class="all_free_content">
+    {% if freeproject_category_post_query %}
+    {% for each_post in freeproject_category_post_query %}
+    <div class="toggle_ctg__sub__content">
+        <div class="toggle_ctg__others">            
+            <p><span class="star-icon">🌟</span>&nbsp;{{each_post.title|upper}}</p>            
+            <div class="toggle_ctg__others__middle">
+                <p>Read Time -
+                 {% if each_post.read_time == 1 %}
+                 {{each_post.read_time}} min
+                 {% else %}
+                 {{each_post.read_time}} mins
+                 {% endif %}
+                </p>
+                <p>Last Updated ({{each_post.last_updated|date:"M d, Y"}})</p>
+            </div>
+            
+            <div class="toggle_ctg__others__descr">
+                {{each_post.content|truncatewords_html:100|safe}}
+                <div class="v_m_btn_div">
+                    <a href="{{each_post.get_absolute_url}}">
+                        <button class="v_m_btn">✔ View full article</button>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>  
+    {% endfor %}
+    <div class="pagination">
+        {% if freeproject_category_post_query.has_previous %}
+        <a href="{% url 'central:freebies' %}?freebie_page={{ freeproject_category_post_query.previous_page_number }}"><i class="fas fa-arrow-alt-circle-left"></i></a>
+        {% else %}
+        <a class="last_disabled"><i class="fas fa-arrow-alt-circle-left"></i></a>
+        {% endif %}
+        {% for i in freeproject_category_post_query.paginator.page_range %}
+        {% if freeproject_category_post_query.number == i %}
+        <a class="active_pg"><span>{{i}} </span></a>
+        {% else %}
+        <a href="{% url 'central:freebies' %}?freebie_page={{i}}"><span class="shift_pagination">{{ i }}</span></a>
+        {% endif %}
+        {% endfor %}
+        {% if freeproject_category_post_query.has_next %}
+        <a href="{% url 'central:freebies' %}?freebie_page={{ freeproject_category_post_query.next_page_number }}"><i class="fas fa-arrow-alt-circle-right"></i></a>
+        {% else %}
+        <a class="last_disabled"><span><i class="fas fa-arrow-alt-circle-right"></i></span></a>
+        {% endif %}
+    </div>
+    {% endif %}
+    </div>
+    <input type="checkbox" name="prm_target" id="input_prm_cat">
+    <label for="input_prm_cat" class="label_prm_target">
+        <div class="toggle_ctg__sub prm_target">
+            <div class="toggle_ctg__sub__title">
+                <i class="fas fa-folder"></i> Premium Projects (~full package)
+            </div>
+            <div class="toggle_ctg__sub__icon">
+                <i class="fas fa-chevron-down"></i>
+            </div>  
+        </div>
+    </label>
+    <div class="spacer"></div>
+        <div class="all_prm_content">
+        {% if request.user.is_authenticated and request.user.is_staff %}
+        {% if premium_category_post_query %}
+            {% for each_post in premium_category_post_query %}
+                <div class="toggle_ctg__sub__content">
+                    <div class="toggle_ctg__others">            
+                        <p><span class="star-icon">🌟</span>&nbsp;{{each_post.title|upper}}</p>            
+                        <div class="toggle_ctg__others__middle">
+                            <p>Read Time -
+                             {% if each_post.read_time == 1 %}
+                             {{each_post.read_time}} min
+                             {% else %}
+                             {{each_post.read_time}} mins
+                             {% endif %}
+                            </p>
+                            <p>Last Updated ({{each_post.last_updated|date:"M d, Y"}})</p>
+                        </div>
+                        
+                        <div class="toggle_ctg__others__descr">
+                            {{each_post.content|truncatewords_html:100|safe}}
+                            <div class="v_m_btn_div">
+                                <a href="{{each_post.get_absolute_url}}">
+                                    <button class="v_m_btn">✔ View full article</button>
+                                </a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>  
+            {% endfor %}
+            <div class="pagination">
+                {% if premium_category_post_query.has_previous %}
+                <a href="{% url 'central:premium' %}?prm_page={{ premium_category_post_query.previous_page_number }}"><i class="fas fa-arrow-alt-circle-left"></i></a>
+                {% else %}
+                <a class="last_disabled"><i class="fas fa-arrow-alt-circle-left"></i></a>
+                {% endif %}
+                {% for i in premium_category_post_query.paginator.page_range %}
+                {% if premium_category_post_query.number == i %}
+                <a class="active_pg"><span>{{i}} </span></a>
+                {% else %}
+                <a href="{% url 'central:premium' %}?prm_page={{i}}"><span class="shift_pagination">{{ i }}</span></a>
+                {% endif %}
+                {% endfor %}
+                {% if premium_category_post_query.has_next %}
+                <a href="{% url 'central:premium' %}?prm_page={{ premium_category_post_query.next_page_number }}"><i class="fas fa-arrow-alt-circle-right"></i></a>
+                {% else %}
+                <a class="last_disabled"><span><i class="fas fa-arrow-alt-circle-right"></i></span></a>
+                {% endif %}
+            </div>
+        {% endif %}
+        {% else %}
+        <div class="toggle_ctg__sub__content">
+            <div class="toggle_ctg__others">            
+                <p class="colored"><i class="fas fa-lock"></i> Locked Content!</p>  
+                <p>Reason: <em>"Not a patron yet!"</em></p>
+                <p>You can gain access by becoming a Patron: </p>
+                
+                <span class="toggle_ctg__others__descr add_margin_top">
+                    <a href="https://www.patreon.com/jointaccessprogrammer" target="_blank"><img src="{% static 'img/patron_button.png' %}"  class="patreon__resize patreon_img" alt="patron_button"></a>
+                </span>
+                
+            </div>
+        </div>  
+        {% endif %}
+        </div>
+    <input type="checkbox" name="tips_target" id="input_tips_cat">
+    <label for="input_tips_cat" class="label_tips_target">
+    <div class="toggle_ctg__sub tips_target">
+        <div class="toggle_ctg__sub__title">
+            <i class="fas fa-smile"></i> Tips n Tricks (~short)
+        </div>
+        <div class="toggle_ctg__sub__icon">
+            <i class="fas fa-chevron-down"></i>
+        </div>  
+    </div>
+    </label>
+    <div class="spacer"></div>
+    <div class="all_tips_content">
+    {% if tips_category_post_query %}
+    {% for each_post in tips_category_post_query %}
+    <div class="toggle_ctg__sub__content">
+        <div class="toggle_ctg__others">            
+            <p><span class="star-icon">🌟</span>&nbsp;{{each_post.title|upper}}</p>            
+            <div class="toggle_ctg__others__middle">
+                <p>Read Time -
+                 {% if each_post.read_time == 1 %}
+                 {{each_post.read_time}} min
+                 {% else %}
+                 {{each_post.read_time}} mins
+                 {% endif %}
+                </p>
+                <p>Last Updated ({{each_post.last_updated|date:"M d, Y"}})</p>
+            </div>
+            
+            <div class="toggle_ctg__others__descr">
+                {{each_post.content|truncatewords_html:100|safe}}
+                <div class="v_m_btn_div">
+                    <a href="{{each_post.get_absolute_url}}">
+                        <button class="v_m_btn">✔ View full article</button>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>  
+    {% endfor %}
+    <div class="pagination">
+        {% if tips_category_post_query.has_previous %}
+        <a href="{% url 'central:tips' %}?tips_page={{ tips_category_post_query.previous_page_number }}"><i class="fas fa-arrow-alt-circle-left"></i></a>
+        {% else %}
+        <a class="last_disabled"><i class="fas fa-arrow-alt-circle-left"></i></a>
+        {% endif %}
+        {% for i in tips_category_post_query.paginator.page_range %}
+        {% if tips_category_post_query.number == i %}
+        <a class="active_pg"><span>{{i}} </span></a>
+        {% else %}
+        <a href="{% url 'central:tips' %}?tips_page={{i}}"><span class="shift_pagination">{{ i }}</span></a>
+        {% endif %}
+        {% endfor %}
+        {% if tips_category_post_query.has_next %}
+        <a href="{% url 'central:tips' %}?tips_page={{ tips_category_post_query.next_page_number }}"><i class="fas fa-arrow-alt-circle-right"></i></a>
+        {% else %}
+        <a class="last_disabled"><span><i class="fas fa-arrow-alt-circle-right"></i></span></a>
+        {% endif %}
+    </div>
+    {% endif %}
+    </div>
+
+</div>
+
+{% endblock section1_b %}
+
+{% block section2_a %}
+{% endblock section2_a %}
+
+{% block section2_b %}
+{% endblock section2_b %}
+
+
+{% block script %}
+<script>
+script("{% static 'js/project_scripts/main.js' %}");
+script("{% static 'js/project_scripts/bke_script.js' %}");
+</script>
+{% endblock %}

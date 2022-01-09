@@ -1,0 +1,76 @@
+{% extends "index.html" %}
+{% load static %}
+{% block section_1 %}
+<div class="detail_section_desk auth_section">
+    <div class="center_text cat_desktop">
+        <p class="center_text__top center_text__top__cat_text">
+            Contact Us
+        </p>
+        <p class="center_text__middle center_text__middle__desk m_t">
+            Reach out to us today
+        </p>
+        <div class="center_text__description desc">
+            Provide a valid email so we can reply to your enquiry.
+        </div>
+        <div class="search_form search_form_desk">
+            <form  method="GET" action="/search/">
+                <div>
+                    <input type="text" name="query" aria-label="..." required="" autofocus="" placeholder="Search for any article..." class="form-control"> 
+                </div> 
+                <button class="search_btn_icon" type="submit" aria-label="Search"><i class="fa fa-search"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock section_1 %}
+
+{% block section1_b %}
+<div class="main_form">
+    <div class="form_header"><i class="fas fa-globe"></i><span class="create_account">Reach Out</span></div>
+    <div class="form_ads">
+        <form class="main_form contact_form" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <tr>
+                <th><label for="id_email">Email:</label></th>
+                <span class="pusher"></span>
+                <td><input class="form-control-2" type="email" name="email" maxlength="60" required id="id_email" /></td>
+            </tr>
+            <br>
+            <tr class="move_down">
+                <th><label for="id_subject">Subject:</label></th>
+                 <span class="pusher"></span>
+                <td><input class="form-control-2" type="text" name="subject" maxlength="120" required id="id_subject" /></td>
+            </tr>
+            <br>
+            <tr class="move_down">
+                <th><label for="id_comment">Comment:</label></th>
+                 <span class="pusher"></span>
+                <td><textarea class="form-control-2" name="comment" cols="40" rows="10" maxlength="1000" required id="id_comment"></textarea></td>
+            </tr>
+            <button type="submit" class="login_act">
+             <span class="log_flex"><i class="fas fa-check"></i> Send Request
+             <img class="ajax_loader" src="{% static 'img/loader.gif' %}">
+            </button>
+        
+        </form>
+        <div class="ads">
+            <p class="advrts_header">Check Out!</p>
+            <p class="ads_text">
+            </p>
+        </div>
+    </div>
+
+</div>
+
+{% endblock section1_b %}
+
+{% block section2_a %}
+{% endblock section2_a %}
+
+{% block section2_b %}
+{% endblock section2_b %}
+
+{% block script %}
+{% include 'attachments/contact.html' %}
+{% endblock script %}

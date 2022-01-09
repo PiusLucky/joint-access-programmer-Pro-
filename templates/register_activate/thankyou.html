@@ -1,0 +1,68 @@
+{% extends "index.html" %}
+{% load static %}
+{% block section_1 %}
+<div class="detail_section_desk auth_section">
+    <div class="center_text cat_desktop">
+        <p class="center_text__top center_text__top__cat_text">
+         Email Verification
+        </p>
+        <p class="center_text__middle center_text__middle__desk m_t">
+            Verify Your Account
+        </p>
+        <div class="center_text__description desc">
+            An activation link has been sent to you via email, please check your mailbox to activate your account.
+            
+        </div>
+        <div class="search_form search_form_desk">
+            <form  method="GET" action="/search/">
+                <div>
+                    <input type="text" name="query" aria-label="..." required="" autofocus="" placeholder="Search for any article..." class="form-control"> 
+                </div> 
+                <button class="search_btn_icon" type="submit" aria-label="Search"><i class="fa fa-search"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock section_1 %}
+
+{% block section1_b %}
+<div class="signup_form">
+    <div class="form_header"><i class="fas fa-lock-open"></i><span class="create_account">Thank You (Validation)</span></div>
+    <div class="form_ads">
+        <div class="main_form thankyou content_adjust">
+            <div>
+                <b>Instructions:</b>
+                <ul class="instructions">
+                    <li>Activate your email <em>ASAP</em> to finish registration.</li>
+                    <li>Email Used for Registration is unique.</li>
+                    <li>A verification link sent to an email is one-time.</li>
+                    <li>One email per account.</li>
+                    <li>Did not receive email? contact us at  <a class="mail_support" href="mailto:tiparticle@gmail.com">support@joint-access-programmer.com</a></li>
+                </ul>
+                <div class="login_btn_back">
+                    <a href="{% url 'authorize:login' %}"> <span class="login_return">Return to Login?</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="ads">
+            <p class="advrts_header">Check Out!</p>
+            <p class="ads_text">
+            </p>
+        </div>
+    </div>
+
+</div>
+{% endblock section1_b %}
+
+{% block section2_a %}
+{% endblock section2_a %}
+
+{% block section2_b %}
+{% endblock section2_b %}
+
+{% block script %}
+
+{% include 'attachments/login.html' %}
+
+{% endblock %}

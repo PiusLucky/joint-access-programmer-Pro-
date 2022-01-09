@@ -1,0 +1,214 @@
+{% extends "index.html" %}
+{% load static %}
+{% if post %}
+{% block head %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{{post_title}}</title>
+    <!-- Adding open graph -->
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{post_title}}" />
+    <meta property="og:description" content="{{meta_content|striptags|truncatechars_html:'200' }}" />
+    <meta property="og:url" content="{{ canonical_path }}" />
+    <meta property="og:site_name" content="Joint Access Programmer" />
+    <meta property="og:image" content="{{post_image_url}}" />
+    <meta property="article:published_time" content="{{post_published|date:'c'}}" />
+    <meta property="article:modified_time" content="{{post_last_updated|date:'c'}}" />
+    <meta name="twitter:card" content="summary" />
+    <!-- // Adding open graph -->
+    <link rel="manifest" href="/static/manifest.json">
+    <meta name="theme-color" content="#2f195f">
+    <meta name="msvalidate.01" content="FF4A9A651AC4C69EA5C0444405C51FD3" />
+    <link rel="apple-touch-icon" href="{% static 'img/jap_logo.svg' %}"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta name="description"  content="{{meta_content|striptags|truncatechars_html:'200' }}">
+    <link rel="canonical" href="{{ canonical_path }}" />
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static  'img/favicon_pack/logo_180x180.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static  'img/favicon_pack/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static  'img/favicon_pack/favicon-16x16.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'dependencies/css/all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'dependencies/css/sunburst.css' %}">
+    <script data-ad-client="ca-pub-8540441848048347" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    {% include 'attachments/section_one.html' %}
+</head>
+{% endblock head %}
+
+{% block section_1 %}
+<div class="detail_head">
+    <div class="other_links">
+        <a href="/" class="other_links__each"> Home</a> / 
+        <a href="{% if post.category == 'ui' %} {% url 'central:user_interface' %} 
+                 {% elif post_category == 'premium' %} {% url 'central:premium' %}
+                 {% elif post.category == 'backend' %} {% url 'central:backend' %}
+                 {% elif post.category == 'algorithm' %} {% url 'central:algorithm' %}
+                 {% elif post.category == 'freebies' %} {% url 'central:freebies' %}
+                 {% elif post.category == 'tips' %} {% url 'central:tips' %}
+                 {% endif %}" 
+            class="other_links__each"> {{post_category}}</a> 
+        / <a  href="javascript:history.go(-1)" onMouseOver="self.status.referrer;return true" class="other_links__each"> Back</a>
+    </div>
+    <div class="detail_title">
+        {{post_title|upper}}
+    </div>
+
+    <div class="detail_properties">
+        <div class="read_time">Read Time - 
+            {% if post.read_time == 1 %}
+            {{post_read_time}} min
+            {% else %}
+            {{post_read_time}} mins
+            {% endif %}
+        </div>
+        <div class="last_updated">Last Updated - {{post_last_updated|date:"M d, Y"}}</div>  
+    </div>
+    <div class="relevant_tags">
+        {% if ui_tag_status %}
+        <a target="_blank" href="{% url 'central:user_interface' %}#ui-showcase"><div class="detail_tag"># UI/UX</div></a>
+        {% endif %}
+        {% if bke_tag_status %}
+        <a target="_blank" href="{% url 'central:backend' %}#backend-showcase"><div class="detail_tag"># Backend</div></a>
+        {% endif %}
+        {% if tips_tag_status %}
+        <a target="_blank" href="{% url 'central:tips' %}#tips-showcase"><div class="detail_tag"># Tips/Tricks</div></a>
+        {% endif %}
+        {% if algo_tag_status %}
+        <a target="_blank" href="{% url 'central:algorithm' %}#algorithm-showcase"><div class="detail_tag"># Algorithm</div></a>
+        {% endif %}
+        {% if free_tag_status %}
+        <a target="_blank" href="{% url 'central:freebies' %}#free-project-showcase"><div class="detail_tag"># Free Project</div></a>
+        {% endif %}
+        {% if prm_tag_status %}
+        <a target="_blank" href="{% url 'central:premium' %}#premium-project-showcase"><div class="detail_tag"># Premium Material</div></a>
+        {% endif %}             
+    </div>
+</div>
+{% endblock section_1 %}
+
+{% block section1_b %}
+<div class="detail_unique_content detail-overflow">
+    <hr class="hr_for_detail">
+    <div class="main_content">
+        <div class="search_div">
+            <form  method="GET" action="/search/" class="detail_search">
+                <div>
+                    <input type="text" name="query" aria-label="..." required="" autofocus="" placeholder="Search for any article..." class="search_input"> 
+                </div>
+                <button class="search_dt_icon" type="submit" aria-label="Search"><i class="fa fa-search"></i>
+                </button> 
+            </form> 
+            <div class="save_btn">
+                <span class="save_btn__text"><i class="fas fa-check-square"></i>&nbsp;Archived!</span>
+            </div>
+        </div>
+
+        {% if post.badges == "python" %}
+        <span>
+            <a href="{% url 'central:backend' %}" target="_blank">
+                <img src="{% static 'img/badges/python_badge.svg' %}" class="shift_tagger" alt="python badge" />
+            </a>
+        </span>
+        {% elif post.badges == "javascript" %}
+        <span>
+            <a href="{% url 'central:user_interface' %}" target="_blank">
+                <img src="{% static 'img/badges/js_badge.svg' %}" class="shift_tagger" alt="javascript badge" />
+            </a>
+        </span>
+        {% elif post.badges == "all" %}
+        <span>
+            <a href="{% url 'central:backend' %}" target="_blank">
+                <img src="{% static 'img/badges/python_badge.svg' %}" class="shift_tagger" alt="python badge" />
+            </a>
+        </span>
+        <span>
+            <a href="{% url 'central:user_interface' %}" target="_blank">
+                <img src="{% static 'img/badges/js_badge.svg' %}" class="shift_tagger" alt="javascript badge" />
+            </a>
+        </span>
+        {% endif %}
+        <div class="unique_text">
+            {% if status %}
+            <div class="restricted_content">
+                <div class="">          
+                    <p class="colored"><i class="fas fa-lock"></i> Locked Content!</p>  
+                    <p>Access: <em>"Denied"</em></p>
+                    <div>Reason: 
+                      <ol>
+                        {% if not user.is_authenticated %}
+                        <li>
+                            <em>"Not logged in"</em>
+                        </li>
+                        {% else %}
+                        <li>
+                            <em>Authentication <i class="fas fa-check-circle"></i> success</em>
+                        </li>
+                        {% endif %}
+                        <li>
+                            <em>"Not yet a patron!" <i class="fas fa-times-circle"></i> failed</em>
+                        </li>
+                      </ol>
+                    </div>
+                    <p>You can gain access by becoming a Patron: </p>
+                    
+                    <span class="toggle_ctg__others__descr add_margin_top">
+                        <a rel="noreferrer" href="https://www.patreon.com/jointaccessprogrammer" target="_blank"><img src="{% static 'img/patron_button.png' %}"  class="patreon__resize patreon_img" alt="patron_button"></a>
+                    </span>
+                    
+                </div>
+            </div>  
+            {% endif %}
+            <div class="contents content_adjust">               
+                {{post.content|safe}}                   
+            </div>
+
+            <div class="ads ads_adjust">
+                <p class="advrts_header">Check Out!</p>
+                <p>
+                </p>
+            </div>
+
+        </div>
+    </div>
+    <div class="side_bar">
+        <div class="side_bar__sub1">
+            <p class="side_bar__header">[ Categories ] </p>
+            <ul class="side_bar__header__ul">
+                <li class="tiny_contents"><a href="{% url 'central:user_interface' %}">UI/UX</a></li>
+                <li class="tiny_contents"><a href="{% url 'central:backend' %}">Backend</a></li>
+                <li class="tiny_contents"><a href="{% url 'central:algorithm' %}">Algorithm</a></li>
+                <li class="tiny_contents"><a href="{% url 'central:freebies' %}">Free Projects</a></li>
+                <li class="tiny_contents"><a href="{% url 'central:premium' %}">Premium Contents</a></li>
+            </ul>
+        </div>
+
+        <div class="side_bar__sub2">
+            <p class="side_bar__tags">Relevant Tags</p>
+            <ul class="side_bar__tags__ul">
+                <li class="tiny_contents"><a href="{% url 'central:tips' %}">Tips/Tricks</a></li>
+                <li class="tiny_contents"><a target="_blank" rel="noreferrer" href="https://www.youtube.com/channel/UCXXFcoxbDgYfhLnko9uIChw?sub_confirmation=1">Videos</a></li>
+                <li class="tiny_contents"><a href="{% url 'central:categories' %}">Categories</a></li>
+                <li class="tiny_contents"><a href="{% url 'central:user_interface' %}">UX</a></li>
+                <li class="tiny_contents"><a href="{% url 'central:algorithm' %}">Scripts</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock section1_b %}
+
+{% block section2_a %}
+{% endblock section2_a %}
+
+{% block section2_b %}
+{% endblock section2_b %}
+
+{% block script %}
+<script>
+script("{% static 'js/project_scripts/main.js' %}");
+script("{% static 'dependencies/js/run_prettify.js' %}");
+</script>
+{% endblock %}
+{% endif %}

@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: joint-access-programmer.com
+Token: dbcf627967e2b5c5b9d203abbe76ea2f7f5caf09e09020bfce81f9ae91dce80e
