@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="JAP Logo" src="https://github.com/PiusLucky/joint-access-programmer-Pro-/blob/master/static/asset/img/Jap_Youtube_Logo.png?raw=true" width="100" />
+  <img alt="JAP Logo" src="https://github.com/PiusLucky/joint-access-programmer-Pro-/blob/main/static/asset/img/Jap_Youtube_Logo.png?raw=true" width="100" />
 </p>
 <h1 align="center">
   Joint-Access-Programmer for Developers
@@ -19,7 +19,7 @@
     </a>
 </p>
 
-![demo](https://github.com/PiusLucky/joint-access-programmer-Pro-/blob/master/static/asset/img/dashboard.png?raw=true)
+![demo](https://github.com/PiusLucky/joint-access-programmer-Pro-/blob/main/static/asset/img/dashboard.png?raw=true)
 
 ## About JointAccessProgrammer.com
 
